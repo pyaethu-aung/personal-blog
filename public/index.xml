@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thoughts</title>
-    <link>http://localhost:1313/</link>
+    <link>https://example.org/</link>
     <description>Recent content on Thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>dev.pyaethuaung@gmail.com (Pyae Thu Aung)</managingEditor>
     <webMaster>dev.pyaethuaung@gmail.com (Pyae Thu Aung)</webMaster>
     <copyright>© 2024 Pyae Thu Aung</copyright>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
