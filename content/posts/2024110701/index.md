@@ -145,3 +145,5 @@ You will notice the homepage content changes as shown below:
     ![alt text](images/screenshots/008.png "Home list item with hero image")
 
 You can download the final project resulting from the steps above via [this link](/files/personal-blog.zip).
+
+I’ll share how to deploy Hugo on GitHub Pages in my next post.
