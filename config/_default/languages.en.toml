@@ -17,8 +17,8 @@ title = "Thoughts"
 [params.author]
   name = "Pyae Thu Aung"
   email = "dev.pyaethuaung@gmail.com"
-  # image = "img/blowfish_logo.png"
-  imageQuality = 96
+#   image = "img/blowfish_logo.png"
+#   imageQuality = 96
   headline = "Just an ordinary programmer"
   bio = "Principal Software Engineer @ Yoma Fleet | Ex Tech Lead @ OneKyat"
 links = [
