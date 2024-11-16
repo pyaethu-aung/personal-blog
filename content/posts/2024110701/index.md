@@ -10,7 +10,7 @@ slug = "my-personal-blog-using-hugo-and-blowfish"
 Here’s an excerpt from the official Hugo documentation introduction.
 > Hugo is a [static site generator](https://en.wikipedia.org/wiki/Static_site_generator) written in [Go](https://go.dev/), optimized for speed and designed for flexibility. With its advanced templating system and fast asset pipelines, Hugo renders a complete site in seconds, often less.
 
-For a quick introduction, you can check out [Hugo in 100 Seconds](https://www.youtube.com/watch?v=0RKpf3rK57I) from [Fireship](https://www.youtube.com/@Fireship) too.
+For a quick introduction, you can check out [Hugo in 100 Seconds](https://www.youtube.com/watch?v=0RKpf3rK57I) from [Fireship](https://www.youtube.com/@Fireship).
 {{< youtube ZFL09qhKi5I>}}
 
 ## Why Hugo?
@@ -74,7 +74,7 @@ title = "My Personal Blog"
     { github = "https://github.com/myname" }
   ]
 ```
-You will notice the homepage content changes as shown below:
+You’ll see the homepage update accordingly:
 ![alt text](images/screenshots/002.png "Home page after changing `languages.en.toml`")
 
 #### 2. Update the following values in `/config/_default/menus.en.toml`:
@@ -101,7 +101,7 @@ You will notice the homepage content changes as shown below:
   showMoreLink = true
   cardView = true
 ```
-You will notice the homepage content changes as shown below:
+You’ll see the homepage update accordingly:
 ![alt text](images/screenshots/004.png "Home page after changing `params.toml`")
 
 ## Add a New Post
@@ -126,9 +126,8 @@ You will notice the homepage content changes as shown below:
     [article]
       showAuthor = true
     ```
-    You will notice the homepage content changes as shown below:
+    The homepage and blog post will reflect the updated content:
     ![alt text](images/screenshots/005.png "Home page after adding a new post")
-    You will be able to see your post displayed as shown below:
     ![alt text](images/screenshots/006.png "New post")
 
 4. To add a hero section to the post and display the author information at the bottom of the page, update the following values in `/config/_default/params.toml`. Additionally, place a hero image in the same directory as `index.md` with the filename `featured.jpeg`.
