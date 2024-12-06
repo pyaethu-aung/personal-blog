@@ -6,6 +6,8 @@ tags = ["hugo", "blowfish"]
 slug = "personal-blog-using-hugo-and-blowfish"
 +++
 
+[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်](/my/posts/personal-blog-using-hugo-and-blowfish)
+
 ## What is [Hugo](https://gohugo.io/)?
 Here’s an excerpt from the official Hugo documentation introduction.
 > Hugo is a [static site generator](https://en.wikipedia.org/wiki/Static_site_generator) written in [Go](https://go.dev/), optimized for speed and designed for flexibility. With its advanced templating system and fast asset pipelines, Hugo renders a complete site in seconds, often less.
@@ -16,7 +18,9 @@ For a quick introduction, you can check out [Hugo in 100 Seconds](https://www.yo
 ## Why Hugo?
 Hugo offers a variety of powerful [features](https://gohugo.io/about/features/), including support for [multilingual](https://gohugo.io/content-management/multilingual/), [templates](https://gohugo.io/templates/introduction/), rich [content formats](https://gohugo.io/content-management/formats/), easy-to-use [shortcodes](https://gohugo.io/content-management/shortcodes/), and [image processing](https://gohugo.io/content-management/image-processing/).
 
-Though I’m new to static site generators, I chose Hugo because of features like multilingual, and templates which use Go's [text/template](https://pkg.go.dev/text/template) and [html/template](https://pkg.go.dev/html/template) packages, making it a natural fit for me.
+I’ve written a few articles on [Medium](https://medium.com/@pyaethuaung) before, but this is my first time starting a blog. The main reason is that I tend to forget solutions to problems I’ve solved after some time.
+
+When I decided to start a blog, I hadn’t used any SSGs before. After a bit of research, I chose Hugo. Here’s why: I’m more comfortable with Go, so working with Go’s [text/template](https://pkg.go.dev/text/template) and [html/template](https://pkg.go.dev/html/template) feels natural. Also, Hugo makes it easy to manage content in both Burmese and English.
 
 ## What is [Blowfish](https://blowfish.page/)?
 Blowfish is a theme designed for Hugo that includes support for [Tailwind CSS v3](https://tailwindcss.com/blog/tailwindcss-v3), automatic image resizing, integrated site search, and more. You can explore additional features in the [Blowfish documentation](https://blowfish.page/docs/welcome/).
@@ -101,11 +105,10 @@ If Homebrew is not installed yet, it can be set up using the following script:
     ![alt text](images/screenshots/004.png "Home page after changing `params.toml`")
 
 ## Add a New Post
-1. Add a new post by running the command below:
+1. Hugo also supports other formats like HTML and Pandoc. You can check out the details here. Add a new Markdown post by running the command below:
     ```shell
     hugo new content content/posts/my-first-post/index.md
     ```
-
 2. Update the [front matter](https://gohugo.io/content-management/front-matter/) in the generated `index.md` file as shown below, and use sample content from [Lorem Markdownum](https://jaspervdj.be/lorem-markdownum/):
     ```md
     +++
@@ -116,16 +119,13 @@ If Homebrew is not installed yet, it can be set up using the following script:
     slug = "my-first-post"
     +++
     ```
-
 3. Update the following values in `/config/_default/params.toml`:
     ```toml
     [article]
       showAuthor = true
     ```
-    The homepage and blog post will reflect the updated content:
     ![alt text](images/screenshots/005.png "Home page after adding a new post")
     ![alt text](images/screenshots/006.png "New post")
-
 4. To add a hero section to the post and display the author information at the bottom of the page, update the following values in `/config/_default/params.toml`. Additionally, place a hero image in the same directory as `index.md` with the filename `featured.jpeg`.
     ```toml
     [article]
@@ -141,4 +141,4 @@ If Homebrew is not installed yet, it can be set up using the following script:
 
 You can download the final project resulting from the steps above via [this link](https://pyaethu-aung.github.io/personal-blog/files/personal-blog.zip).
 
-I’ll share how to deploy Hugo on GitHub Pages in my next post.
+Later, I’ll write about hosting the blog on GitHub Pages and using Hugo’s multilingual mode to post in both English and Burmese.

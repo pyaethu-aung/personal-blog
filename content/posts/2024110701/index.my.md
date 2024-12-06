@@ -6,7 +6,7 @@ tags = ["hugo", "blowfish"]
 slug = "personal-blog-using-hugo-and-blowfish"
 +++
 
-[Read this article in English](/posts/my-personal-blog-using-hugo-and-blowfish)
+[Read this article in English](/posts/personal-blog-using-hugo-and-blowfish)
 
 ## What is [Hugo](https://gohugo.io/)?
 Hugo က ဘာလဲဆိုတဲ့ အကျဉ်းချုပ်ကို Hugo official documentation ထဲကနေပဲ အလွယ်တကူယူသုံးလိုက်ပါတယ်။
