@@ -1,9 +1,9 @@
 +++
-title = "My Personal Blog Using Hugo and Blowfish"
+title = "Personal Blog Using Hugo and Blowfish"
 date = 2024-11-06T18:50:00+07:00
 draft = false
 tags = ["hugo", "blowfish"]
-slug = "my-personal-blog-using-hugo-and-blowfish"
+slug = "personal-blog-using-hugo-and-blowfish"
 +++
 
 ## What is [Hugo](https://gohugo.io/)?
@@ -11,7 +11,7 @@ Here’s an excerpt from the official Hugo documentation introduction.
 > Hugo is a [static site generator](https://en.wikipedia.org/wiki/Static_site_generator) written in [Go](https://go.dev/), optimized for speed and designed for flexibility. With its advanced templating system and fast asset pipelines, Hugo renders a complete site in seconds, often less.
 
 For a quick introduction, you can check out [Hugo in 100 Seconds](https://www.youtube.com/watch?v=0RKpf3rK57I) from [Fireship](https://www.youtube.com/@Fireship).
-{{< youtube ZFL09qhKi5I>}}
+{{< youtube 0RKpf3rK57I>}}
 
 ## Why Hugo?
 Hugo offers a variety of powerful [features](https://gohugo.io/about/features/), including support for [multilingual](https://gohugo.io/content-management/multilingual/), [templates](https://gohugo.io/templates/introduction/), rich [content formats](https://gohugo.io/content-management/formats/), easy-to-use [shortcodes](https://gohugo.io/content-management/shortcodes/), and [image processing](https://gohugo.io/content-management/image-processing/).
@@ -52,7 +52,7 @@ If Homebrew is not installed yet, it can be set up using the following script:
     disable = false
     path = "github.com/nunocoracao/blowfish/v2"
     ```
-4. Start Hugo by running the command below. You can view the homepage by navigating to http://localhost:8080/ :
+4. Start Hugo by running the command below. You can view the homepage by navigating to http://localhost:8080/:
     ```bash
     hugo server --port 8080
     ```
@@ -60,49 +60,45 @@ If Homebrew is not installed yet, it can be set up using the following script:
 
 
 ### Configuration
-#### 1. Update the following values in `/config/_default/languages.en.toml`:
-```toml
-title = "My Personal Blog"
+1. Update the following values in `/config/_default/languages.en.toml`:
+    ```toml
+    title = "My Personal Blog"
 
-[params.author]
-  name = "My Name"
-  email = "hello@myname.com"
-  headline = "I'm writing blog by using Hugo and Blowfish"
-  bio = "Freelance Developer"
-  links = [
-    { email = "mailto:hello@myname.com" },
-    { github = "https://github.com/myname" }
-  ]
-```
-You’ll see the homepage update accordingly:
-![alt text](images/screenshots/002.png "Home page after changing `languages.en.toml`")
+    [params.author]
+      name = "My Name"
+      email = "hello@myname.com"
+      headline = "I'm writing blog by using Hugo and Blowfish"
+      bio = "Freelance Developer"
+      links = [
+        { email = "mailto:hello@myname.com" },
+        { github = "https://github.com/myname" }
+      ]
+    ```
+    You’ll see the homepage update accordingly:
+    ![alt text](images/screenshots/002.png "Home page after changing `languages.en.toml`")
+2. Update the following values in `/config/_default/menus.en.toml`:
+    ```toml
+    [[main]]
+      name = "Blog"
+      pageRef = "posts"
+      weight = 10
 
-#### 2. Update the following values in `/config/_default/menus.en.toml`:
-```toml
-[[main]]
-  name = "Blog"
-  pageRef = "posts"
-  weight = 10
-
-[[main]]
-  name = "Tags"
-  pageRef = "tags"
-  weight = 30
-```
-You will notice the homepage content changes as shown below:
-![alt text](images/screenshots/003.png "Home page after changing `menus.en.toml`")
-
-#### 3. Update the following values in `/config/_default/params.toml`:
-```toml
-[homepage]
-  layout = "hero"
-  homepageImage = "images/hero_background.jpg" # hero_background.jpg should be in "/assets/images/"
-  showRecent = true
-  showMoreLink = true
-  cardView = true
-```
-You’ll see the homepage update accordingly:
-![alt text](images/screenshots/004.png "Home page after changing `params.toml`")
+    [[main]]
+      name = "Tags"
+      pageRef = "tags"
+      weight = 30
+    ```
+    ![alt text](images/screenshots/003.png "Home page after changing `menus.en.toml`")
+3. Update the following values in `/config/_default/params.toml`:
+    ```toml
+    [homepage]
+      layout = "hero"
+      homepageImage = "images/hero_background.jpg" # hero_background.jpg should be in "/assets/images/"
+      showRecent = true
+      showMoreLink = true
+      cardView = true
+    ```
+    ![alt text](images/screenshots/004.png "Home page after changing `params.toml`")
 
 ## Add a New Post
 1. Add a new post by running the command below:
@@ -110,7 +106,7 @@ You’ll see the homepage update accordingly:
     hugo new content content/posts/my-first-post/index.md
     ```
 
-2. Update the [font matter](https://gohugo.io/content-management/front-matter/) in the generated `index.md` file as shown below, and use sample content from [Lorem Markdownum](https://jaspervdj.be/lorem-markdownum/):
+2. Update the [front matter](https://gohugo.io/content-management/front-matter/) in the generated `index.md` file as shown below, and use sample content from [Lorem Markdownum](https://jaspervdj.be/lorem-markdownum/):
     ```md
     +++
     title = "My First Post"
