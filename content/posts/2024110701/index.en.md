@@ -2,11 +2,12 @@
 title = "Personal Blog Using Hugo and Blowfish"
 date = 2024-11-06T18:50:00+07:00
 draft = false
-tags = ["hugo", "blowfish"]
+lang = "en"
 slug = "personal-blog-using-hugo-and-blowfish"
+tags = ["hugo", "blowfish"]
 +++
 
-[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်](/my/posts/personal-blog-using-hugo-and-blowfish)
+[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်]({{< relref path="2024110701/index.my.md" lang="my" >}})
 
 ## What is [Hugo](https://gohugo.io/)?
 Here’s an excerpt from the official Hugo documentation introduction.
