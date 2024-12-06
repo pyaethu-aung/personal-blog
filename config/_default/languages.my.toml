@@ -5,7 +5,7 @@ weight = 2
 title = "Thoughts"
 
 [params]
-  displayName = "မြန်မာ"
+  displayName = "MY"
   isoCode = "my"
   rtl = false
   dateFormat = "2 January 2006"
