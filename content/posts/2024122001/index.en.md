@@ -72,3 +72,17 @@ print(re.findall(r'.\s', 'This is first sentence. And this is second sentence.')
 In this Python code, the intention is to check if there’s a **full stop** followed by a **space**. However, since the dot `.` is a special character in regular expressions to match any character, the result will be `['s ', 's ', 't ', '. ', 'd ', 's ', 's ', 'd ']`. This happens because `.` matches any character, so it’s matching every occurrence of a character followed by a space.
 
 To specifically match a **full stop** followed by a **space**, you need to escape the dot by using `\`. So, using `r'\.\s'` will give the correct result: `['. ']`. This ensures that the dot is treated literally as a full stop rather than a wildcard character.
+
+## Last But Not Least
+Two other useful tokens are `^` and `$`:
+- `^`: Matches the start of the string.
+- `$`: Matches the end of the string.
+
+```python
+import re
+
+print(re.findall(r'hello_\d+', 'hello_world hello_123'))
+```
+In this Python code, the result will be `['hello_123']`. If you want to check if the string starts with the pattern `hello_` followed by one or more digits, you should use the pattern `r'^hello_\d+'`.
+
+Similarly, if you want to check if the string ends with `hello_` followed by one or more digits, you should use the pattern `r'hello_\d+$'`. The `^` ensures the string starts with the pattern, and the `$` ensures it ends with the pattern.
