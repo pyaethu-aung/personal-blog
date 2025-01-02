@@ -34,3 +34,31 @@ print(re.findall(r'\w', 'Hi 123'))
 If the regular expression is changed to `r'\w\w'`, the result will be `['Hi', '12']`. This matches any two consecutive word characters. If it's changed to `r'\w\s\d'`, it will return `['i 1']`. This matches a word character `\w`, followed by a space `\s`, and then a digit `\d`.
 
 If you want to match exactly 9 digits, is it necessary to write \d nine times? To match a range, such as 3 to 5 characters, how should it be written? In such cases, you need to use a **quantifier**.
+
+## General Quantifiers
+Check below for the most commonly used and simplest quantifiers:
+- `?`: **Zero** or **one** occurrence.
+- `*`: **Zero** or **more** occurrences.
+- `+`: **One** or **more** occurrences.
+- `{5}`: Exactly **five** occurrences.
+- `{5,9}`: Between **five** and **nine** occurrences.
+- `{5,}`: **five** or **more** occurrences.
+
+```python
+import re
+
+print(re.findall(r'\d+', 'Hi 123 4567 89101112'))
+```
+In this Python example, when you match one or more digits (\d+), the result will be ['123', '4567', '89101112'] because it matches consecutive digits.
+
+If you match exactly 4 digits using r'\d{4}', the result will be ['4567', '8910', '1112'], since it matches only sequences of exactly 4 digits.
+
+If you use r'\d{4,}', the result will be ['4567', '89101112'], as it matches sequences of 4 or more digits.
+
+One important thing to note here is that quantifiers apply **immediately to the left**. The quantifier will only affect the character or token directly to its left. This means it will only apply to the character or token it’s placed next to, not to the whole pattern.
+```python
+import re
+
+print(re.findall(r'1\w+', '1a1b1c1d1e1f1g'))
+```
+In this Python code, the result will be `['1a1b1c1d1e1f1g']`, not `['1a', '1b', '1c', '1d', '1e', '1f', '1g']`. This happens because the `+` quantifier applies to `\w` immediately to the left of it. The quantifier doesn’t affect both `1` and `\w` together. Instead, the regular expression matches a sequence where a `1` is followed by one or more word characters, and it continues matching the entire string as a single match.
