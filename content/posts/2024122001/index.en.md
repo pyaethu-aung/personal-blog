@@ -86,3 +86,13 @@ print(re.findall(r'hello_\d+', 'hello_world hello_123'))
 In this Python code, the result will be `['hello_123']`. If you want to check if the string starts with the pattern `hello_` followed by one or more digits, you should use the pattern `r'^hello_\d+'`.
 
 Similarly, if you want to check if the string ends with `hello_` followed by one or more digits, you should use the pattern `r'hello_\d+$'`. The `^` ensures the string starts with the pattern, and the `$` ensures it ends with the pattern.
+
+## Python Functions
+Since this post focuses mainly on regular expressions, I’ve used the `re.findall()` function. However, you can also experiment with the following Python functions depending on the specific needs:
+- `re.match()`: Checks for a match only at the start of the string.
+- `re.search()`: Searches the entire string for the first match.
+- `re.sub()`: Replaces occurrences of a pattern with a specified string.
+- `re.split()`: Splits the string at each match of the pattern.
+
+## Outroduction
+As the title, **Regular Expression 101**, mastering regular expressions requires plenty of practice. I recommend experimenting with matching patterns like email addresses and ID numbers to strengthen your skills. In future posts, I’ll cover more complex patterns, such as password validation, to help you tackle even more challenging use cases.
