@@ -84,4 +84,13 @@ print(re.findall(r'.*hello', 'xhello123'))
 2. `.*h`: `xhello123` -> `xhello12`3 -> `xhello1`23 -> `xhello`123 -> `xhell`o123 -> `xhel`lo123 -> `xhe`llo123 -> `xh`ello123
 3. `.*hello`: `xhello` 
 
-ဒီ ဥပမာကို [DataCamp](https://www.datacamp.com/) ရဲ့ [Regular Expression in Python](https://campus.datacamp.com/courses/regular-expressions-in-python) ကနေယူထားတာပါ။ တကယ်လို့ Python နဲ့ data engineering ကို beginner အနေနဲ့ စလေ့လာမယ် ဆိုရင် [DataCamp](https://www.datacamp.com/) ကို recommend လုပ်ပါတယ်။ 
+ဒီ ဥပမာကို [DataCamp](https://www.datacamp.com/) ရဲ့ [Regular Expression in Python](https://campus.datacamp.com/courses/regular-expressions-in-python) ကနေယူထားတာပါ။ တကယ်လို့ Python နဲ့ data engineering ကို beginner အနေနဲ့ စလေ့လာမယ် ဆိုရင် [DataCamp](https://www.datacamp.com/) ကို recommend လုပ်ပါတယ်။
+
+### Non-Greedy Quantifier
+Non-greedy quantifier ကို lazy quantifier လို့လဲခေါ်ပါတယ်။ သူက greedy နဲ့မတူပဲ အနည်းဆုံးပမာဏကိုပဲ match လုပ်တာမလို့ပါ။
+```python
+import re
+
+print(re.findall(r'\w+?', 'abcdefh123!@#'))
+```
+ဒီဥပမာမှာ ထင်ထားတဲ့အတိုင်းပဲ အဖြေက `<re.Match object; span=(0, 1), match='a'>` ဖြစ်မှာပါ။
