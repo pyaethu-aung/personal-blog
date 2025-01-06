@@ -98,3 +98,7 @@ Since this post focuses mainly on regular expressions, I’ve used the `re.finda
 
 ## Outroduction
 As the title, **Regular Expression 101**, mastering regular expressions requires plenty of practice. I recommend experimenting with matching patterns like email addresses and ID numbers to strengthen your skills. In future posts, I’ll cover more complex patterns, such as password validation, to help you tackle even more challenging use cases.
+
+## References:
+- [Regular Expression in Python by Data Camp](https://campus.datacamp.com/courses/regular-expressions-in-python)
+- [regex101.com](https://regex101.com/)
