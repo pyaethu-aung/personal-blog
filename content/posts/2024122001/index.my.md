@@ -94,3 +94,7 @@ print(re.findall(r'hello_\d+', 'hello_world hello_123'))
 
 ## Outroduction
 **Regular Expression အခြေခံ** ဆိုတဲ့အတိုင်း ဒီမှာရေးခဲ့တာတွေကို ကျွမ်းကျွမ်းကျင်ကျင်သုံးနိုင်ဖို့က များများလေ့ကျင့်ဖို့လိုပါတယ်။ Email နဲ့ ID number လိုမျိုးတွေကို များများစမ်းပြီး match လုပ်ကြည့်ပါ။ နောက် post တွေကျရင် password validation လိုမျိုး ပိုပြီးရှုပ်ထွေးတဲ့ pattern တွေကို match လုပ်နိုင်ဖို့အတွက် ရေးပါဦးမယ်။
+
+## References:
+- [Regular Expression in Python by Data Camp](https://campus.datacamp.com/courses/regular-expressions-in-python)
+- [regex101.com](https://regex101.com/)
