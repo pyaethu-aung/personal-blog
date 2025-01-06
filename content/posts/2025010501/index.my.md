@@ -94,3 +94,11 @@ import re
 print(re.findall(r'\w+?', 'abcdefh123!@#'))
 ```
 ဒီဥပမာမှာ ထင်ထားတဲ့အတိုင်းပဲ အဖြေက `<re.Match object; span=(0, 1), match='a'>` ဖြစ်မှာပါ။
+
+## Outroduction
+အပိုင်း ၁ မှာ ပြောခဲ့တာကို ထပ်ပြောရရင် ဒီမှာရေးခဲ့တာတွေကို ကျွမ်းကျွမ်းကျင်ကျင်သုံးနိုင်ဖို့က များများလေ့ကျင့်ဖို့လိုပါတယ်။ အခြေခံကျကျနားလည်ထားဖို့ အရေးကြီးသလို လက်တွေ့များများရေးဖူးထားမှ ကျွမ်းကျင်နေမှာပါ။ နောက်အပိုင်းမှာ capturing group နဲ့ backreference အကြောင်း ထပ်ရေးပါမယ်။
+
+## References:
+- [Regular Expression in Python by Data Camp](https://campus.datacamp.com/courses/regular-expressions-in-python)
+- [regex101.com](https://regex101.com/)
+- [Set and Ranges by javascript.info](https://javascript.info/regexp-character-sets-and-ranges)
