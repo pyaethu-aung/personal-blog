@@ -9,6 +9,8 @@ tags = ["regex", "python"]
 
 [Read this article in English]({{< relref path="2024122001/index.en.md" lang="en" >}})
 
+[အပိုင်း ၂]({{< relref path="2025010501/index.my.md">}})
+
 ## Introduction
 `([A-Za-z])\w+\s+\W\D`  
 အပေါ်ကလိုမျိုး regular expression ကိုတွေ့ရင် programmer အတော်များများက ဘာအဓိပ္ပါယ်လဲလို့ မသိကြတာများမယ်ထင်တယ်။ ကျွန်တော်လည်းပါတယ်။ ပြီးတော့ validation စစ်ဖို့အတွက် regular expression ရေးရတော့မယ်ဆိုရင် [RegExr](https://regexr.com/) တို့ [regex101](https://regex101.com/) တို့မှာ သွားရေးကြတာ များမလားပဲ။ အခုဆိုရင်တော့ Chat GPT တို့ GitHub Copilot တို့ပေါ့။
