@@ -57,3 +57,12 @@ Most of the programmers commonly use the above regular expressions which allow o
 
 ### Not In `^`
 The `^` character, which is discussed in [Part 1]({{< relref path="2024122001/index.en.md" lang="en" >}}) as indicating the start of the string, is also used within sets and ranges to mean not in.
+```python
+import re
+
+print(re.findall(r'[^A-Za-z0-9]+', 'NoSpaceAndSpecialCharacter#!0-0 123456789'))
+print(re.findall(r'[^nl]ot', 'not hot lot'))k
+```
+For the first print statement, the pattern matches anything that is not an alphabet or a digit. Hence, the result will be `['#!', '-', ' ']`.
+
+For the second print statement, the pattern matches anything that does not start with **n** or **l**. The output will be `['hot']`.
