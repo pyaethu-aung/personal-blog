@@ -54,3 +54,6 @@ else:
     print('Not match')
 ```
 Most of the programmers commonly use the above regular expressions which allow only alphabets and numbers, while excluding space and special characters. In this case, the code will execute `print('Match')`. However, if there are any **space** or **special character** in the string, it will execute `print('Not match')`.
+
+### Not In `^`
+The `^` character, which is discussed in [Part 1]({{< relref path="2024122001/index.en.md" lang="en" >}}) as indicating the start of the string, is also used within sets and ranges to mean not in.
