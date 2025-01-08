@@ -43,3 +43,14 @@ import re
 
 print(re.findall(r'[nl]ot', 'Not not Hot hot Lot lot', re.IGNORECASE))
 ```
+
+### Range
+```python
+import re
+
+if re.fullmatch(r'[A-Za-z0-9]+', 'NoSpaceAndSpecialCharacter0123456789'):
+    print('Match')
+else:
+    print('Not match')
+```
+Most of the programmers commonly use the above regular expressions which allow only alphabets and numbers, while excluding space and special characters. In this case, the code will execute `print('Match')`. However, if there are any **space** or **special character** in the string, it will execute `print('Not match')`.
