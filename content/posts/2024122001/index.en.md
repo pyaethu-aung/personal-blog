@@ -9,6 +9,8 @@ tags = ["regex", "python"]
 
 [မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်]({{< relref path="2024122001/index.my.md" lang="my" >}})
 
+[Part 2]({{< relref path="2025010501/index.en.md" lang="en" >}})
+
 ## Introduction
 `([A-Za-z])\w+\s+\W\D`  
 When you come across a regular expression like that, chances are a lot of programmers (myself included) have no clue what it means at first glance. And when it’s time to write a regex for validation, most of us probably head straight to [RegExr](https://regexr.com/) or [regex101](https://regex101.com/). These days, though, we’ve got tools like ChatGPT and GitHub Copilot to help out.

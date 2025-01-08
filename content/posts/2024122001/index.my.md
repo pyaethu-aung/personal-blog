@@ -9,7 +9,7 @@ tags = ["regex", "python"]
 
 [Read this article in English]({{< relref path="2024122001/index.en.md" lang="en" >}})
 
-[အပိုင်း ၂]({{< relref path="2025010501/index.my.md">}})
+[အပိုင်း ၂]({{< relref path="2025010501/index.my.md" lang="my" >}})
 
 ## Introduction
 `([A-Za-z])\w+\s+\W\D`  
