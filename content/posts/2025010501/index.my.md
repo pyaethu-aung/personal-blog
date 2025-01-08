@@ -7,6 +7,8 @@ slug = "regular-expressions-101-part-02"
 tags = ["regex", "python"]
 +++
 
+[Read this article in English]({{< relref path="2025010501/index.en.md" lang="en" >}})
+
 [အပိုင်း ၁]({{< relref path="2024122001/index.my.md" lang="my" >}})
 
 ## Pipe Metacharacter
@@ -19,8 +21,11 @@ print(re.findall(r'Go|Python', 'I\'m intrested in Go, JavaScript, Python, and SQ
 အခြား programming language တွေမှာလိုပဲ `|` ကို **OR operator** အနေနဲ့ မြင်ကြည့်လို့ရပါတယ်။ အပေါ်က Python code မှာဆိုရင် **Go** ဒါမှမဟုတ် **Python** လို့ match လုပ်လိုက်တာဆိုတော့ result က `['Go', 'Python']` ဖြစ်မှာပါ။
 
 ## Character Classes
-### Set
 Square bracket `[]` ကို regular expression မှာ **set** နဲ့ **range** အတွက်သုံးပါတယ်။
+- **Set** ဆိုတာက character၊ digit၊ symbol အစုအဝေးလိုမျိုးပါ။ ဥပမာ `[abc]` ဆိုရင် lower letter **a**၊ **b**၊ **c** ထဲက တခုခုနဲ့ match လုပ်မှာပါ။
+- **Range** ဆိုတာကတော့ ၊ အစုအဝေးမဟုတ်ပဲ နဲ့ လို ပုံစံမျိုးပါ။  ဥပမာ ဆို ကနေ အထိ မယ်၊ ဆိုရင် ကနေ အထိ မယ်ပေါ့။
+
+### Set
 ```python
 import re
 
@@ -60,11 +65,13 @@ import re
 print(re.findall(r'[^A-Za-z0-9]+', 'NoSpaceAndSpecialCharacter#!0-0 123456789'))
 print(re.findall(r'[^nl]ot', 'not hot lot'))k
 ```
-ဒီ code မှာဆိုရင် ပထမ print မှာ **alphabatic** ရော **digit** ရောမဟုတ်ရဘူးဆိုတဲ့အတွက် result က `['#!', '-', ' ']` ရပါလိမ့်မယ်။ ဒုတိယ print မှာတော့ **n** နဲ့ရော **l** နဲ့ရော မစရတဲ့အတွက် result က `['hot']` ဖြစ်မှာပါ။
+ဒီ code မှာဆိုရင် ပထမ print မှာ **alphabatic** ရော **digit** ရောမဟုတ်ရဘူးဆိုတဲ့အတွက် result က `['#!', '-', ' ']` ရပါလိမ့်မယ်။
+
+ဒုတိယ print မှာတော့ **n** နဲ့ရော **l** နဲ့ရော မစရတဲ့အတွက် result က `['hot']` ဖြစ်မှာပါ။
 
 ## Greedy and Non-Greedy Quantifiers
 ### Greedy Quantifier
-Standard quantifier တွေဖြစ်တဲ့ `.`၊ `?`၊ `+`၊ `*` နဲ့ `{from, to|` အစရှိသဖြင့်တွေက default အနေနဲ့ greedy ပါ။ Greedy ဆိုတာက match ဖြစ်နေသေးသ၍ ရနိုင်သလောက် match လုပ်တာကို ပြောတာပါ။ အခုပြောခဲ့တာက ရှုပ်နေသလိုဖြစ်ပေမဲ့ အောက်က code ကိုကြည့်လိုက်ရင်ရှင်းပါလိမ့်မယ်။
+Standard quantifier တွေဖြစ်တဲ့ `.`၊ `?`၊ `+`၊ `*` နဲ့ `{from, to|` အစရှိသဖြင့်တွေက default အနေနဲ့ **greedy** ပါ။ Greedy ဆိုတာက match ဖြစ်နေသေးသ၍ ရနိုင်သလောက် match လုပ်တာကို ပြောတာပါ။ အခုပြောခဲ့တာက ရှုပ်နေသလိုဖြစ်ပေမဲ့ အောက်က code ကိုကြည့်လိုက်ရင်ရှင်းပါလိမ့်မယ်။
 ```python
 import re
 
@@ -78,11 +85,11 @@ import re
 
 print(re.findall(r'.*hello', 'xhello123'))
 ```
-ဒီ code မှာဆိုရင် `.*` က sentence တခုလုံးကို match ဖြစ်နေပြီးတော့ result က `['xhello123']` ရမယ်လို့ ထင်ရမှာပါ။ ဒါပေမဲ့ `.*` မှာ sentence တခုလုံး match ဖြစ်နေပြီး ကျန်တဲ့ token တွေကို backtrack နဲ့ တခုစီ process လုပ်သွားတာပါ။ ရှုပ်နေမယ်ဆိုရင် အောက်မှာတဆင့်စီ ပြောပြပေးထားပါတယ်။
+ဒီ code မှာဆိုရင် `.*` က sentence တခုလုံးကို match ဖြစ်နေပြီးတော့ result က `['xhello123']` ရမယ်လို့ ထင်ရမှာပါ။ ဒါပေမဲ့ `.*` မှာ sentence တခုလုံး match ပြီးမှ ကျန်တဲ့ token တွေကို backtrack နဲ့ တခုစီ process လုပ်သွားတာပါ။ ရှုပ်နေမယ်ဆိုရင် အောက်မှာတဆင့်စီ ပြောပြပေးထားပါတယ်။
 
 1. `.*`: `xhello123`
 2. `.*h`: `xhello123` -> `xhello12`3 -> `xhello1`23 -> `xhello`123 -> `xhell`o123 -> `xhel`lo123 -> `xhe`llo123 -> `xh`ello123
-3. `.*hello`: `xhello` 
+3. `.*hello`: `xhello`
 
 ဒီ ဥပမာကို [DataCamp](https://www.datacamp.com/) ရဲ့ [Regular Expression in Python](https://campus.datacamp.com/courses/regular-expressions-in-python) ကနေယူထားတာပါ။ တကယ်လို့ Python နဲ့ data engineering ကို beginner အနေနဲ့ စလေ့လာမယ် ဆိုရင် [DataCamp](https://www.datacamp.com/) ကို recommend လုပ်ပါတယ်။
 

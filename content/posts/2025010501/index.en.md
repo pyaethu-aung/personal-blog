@@ -7,6 +7,8 @@ slug = "regular-expressions-101-part-02"
 tags = ["regex", "python"]
 +++
 
+[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်]({{< relref path="2025010501/index.my.md" lang="my" >}})
+
 [Part 1]({{< relref path="2024122001/index.en.md" lang="en" >}})
 
 ## Pipe Metacharacter
