@@ -66,3 +66,38 @@ print(re.findall(r'[^nl]ot', 'not hot lot'))k
 For the first print statement, the pattern matches anything that is not an alphabet or a digit. Hence, the result will be `['#!', '-', ' ']`.
 
 For the second print statement, the pattern matches anything that does not start with **n** or **l**. The output will be `['hot']`.
+
+## Greedy and Non-Greedy Quantifiers
+### Greedy Quantifier
+Standard quantifiers like `.`, `?`, `+`, `*`, and `{from, to}` are **greedy** by default. Greedy means that they will try to match as much as possible while still satisfying the pattern. In other words, they match the longest possible string that fits.
+
+Though it may seem confusing, the following code will help clarify how greedy quantifier works:
+```python
+import re
+
+print(re.findall(r'\w+', 'abcdefh123!@#'))
+```
+When you run the code, the result will be as expected: `['abcdefh123']`. When you change the pattern to `r'\d+'`, the result will be `['123']`.
+
+The behavior of the `+` quantifier is not always straightforward and can be a bit tricky when it comes to **backtracking**. Let’s break down the example step-by-step to better understand how it works:
+```python
+import re
+
+print(re.findall(r'.*hello', 'xhello123'))
+```
+It may seem like `.*` matches the entire sentence, resulting in `['xhello123']`. However, `.*` does match the whole sentence initially, but then it processes the remaining tokens one by one in backtracking. If this is unclear, I’ll explain it step by step below:
+
+1. `.*`: `xhello123`
+2. `.*h`: `xhello123` -> `xhello12`3 -> `xhello1`23 -> `xhello`123 -> `xhell`o123 -> `xhel`lo123 -> `xhe`llo123 -> `xh`ello123
+3. `.*hello`: `xhello`
+
+I borrowed this example from [DataCamp](https://www.datacamp.com/)'s [Regular Expression in Python course](https://campus.datacamp.com/courses/regular-expressions-in-python) without hesitation. If you’re a beginner looking to learn Python and data engineering, I highly recommend [DataCamp](https://www.datacamp.com/).
+
+### Non-Greedy Quantifier
+The non-greedy quantifier, also known as the lazy quantifier, differs from the greedy quantifier in that it matches the smallest possible portion of the string.
+```python
+import re
+
+print(re.findall(r'\w+?', 'abcdefh123!@#'))
+```
+When you run the code, the result will be as expected: `<re.Match object; span=(0, 1), match='a'>`.
