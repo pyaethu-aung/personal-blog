@@ -101,3 +101,11 @@ import re
 print(re.findall(r'\w+?', 'abcdefh123!@#'))
 ```
 When you run the code, the result will be as expected: `<re.Match object; span=(0, 1), match='a'>`.
+
+## Outroduction
+As mentioned in Part 1, mastering regular expressions requires a lot of practice. It’s essential for both gaining a deep understanding and improving your skills. I’ll share more about capturing groups and backreferences in future posts.
+
+## References:
+- [Regular Expression in Python by Data Camp](https://campus.datacamp.com/courses/regular-expressions-in-python)
+- [regex101.com](https://regex101.com/)
+- [Set and Ranges by javascript.info](https://javascript.info/regexp-character-sets-and-ranges)
