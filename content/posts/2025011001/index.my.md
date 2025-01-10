@@ -8,3 +8,19 @@ tags = ["postgres", "mongodb", "sql", "nosql"]
 +++
 
 Mobile နဲ့ web app ရေးတဲ့သူတွေ၊ CURD API ရေးဖူးတဲ့သူတွေနဲ့ third-party API သုံးပြီးရေးဖူးတဲ့ programmer တွေဆိုရင် pagination ကို ရင်းရင်းနီးနီးသိကြမှာပါ။ ကိုယ်က API ရေးတဲ့သူဆိုရင် URL မှာ `limit` နဲ့ `skip` လိုမျိုး query parameter တွေထည့်ပေးတာမျိုး၊ validation အနေနဲ့ဆိုရင် `limit` မှာ အများဆုံး ဘယ်လောက်ပဲပေးထားတာမျိုးတွေ စသဖြင့်ပေါ့။ Mobile programmer တွေဆိုရင်လည်း infinite scroll လိုမျိုးတွေမှာ user က scroll လုပ်တာဘယ်နေရာကိုရောက်နေရင် နောက်တ page အတွက် API ကိုကြိုခေါ်ရမယ် ဘာညာပေါ့။ ဒါတွေက အားလုံးသိပြီးသားဖြစ်လောက်တဲ့အတွက် လိုရင်းကိုပဲသွားလိုက်ပါမယ်။
+
+## Offset Pagination
+Cursor pagination ဆိုပြီး ဘာလို့ `skip` နဲ့ `limit` သုံးတဲ့ pagination အကြောင်းအရင်ပြောရလဲဆိုရင် အသုံးအများဆုံး pagination ဖြစ်နေလို့ပါ။ သူအလုပ်လုပ်တဲ့ပုံစံက ရှင်းပါတယ်။ Query parameter အနေနဲ့ပြောရမယ်ဆို `?limit=20&skip=40` လို့ပေးလိုက်ရင် sort လုပ်ထားပြီးတဲ့အထဲကနေ ပထမ record ၄၀ ကို ဖယ်ပြီး record ၂၀ ပြန်ပေးလိုက်ရုံပါပဲ။
+
+SQL အနေနဲ့ရေးရင်လည်း လွယ်လွယ်ကူကူ ရေးလို့ရပါတယ်။
+```sql
+SELECT *
+FROM records
+OFFSET 20
+LIMIT 20
+```
+
+MongoDB မှာဆိုရင်လည်း အဲလိုပါပဲ။
+```javascript
+db.records.find({}, { limit: 20, skip: 20 })
+```
