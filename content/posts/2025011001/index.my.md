@@ -56,3 +56,15 @@ db.records.find(
   { created_at: { $lt: 1736533304 } }
 ).limit(20);
 ```
+
+### Pros of Cursor Pagination
+အခုလိုမျိုး condition-based ပုံစံ query ရေးလို့ရတဲ့အတွက် offset pagination မှာဖြစ်ခဲ့တဲ့ ပြဿနာတွေကို ဖြေရှင်းနိုင်သွားပါတယ်။
+
+#### 1. Efficient Queries and Index Utilization
+- `OFFSET` ကို မသုံးရတော့တဲ့အတွက် table/collection တခုလုံးကို scan လုပ်စရာမလိုတော့တဲ့အတွက် query performance ပိုကောင်းလာပါမယ်။
+- Condition-based ပုံစံနဲ့ skip လုပ်တဲ့အတွက် pagination ကိုပါတွက်ပြီး index တွေဆောက်လို့ရသွားပါတယ်။ SQL ပဲဖြစ်ဖြစ် NoSQL ပဲဖြစ်ဖြစ် offset အတွက် index ဆောက်လို့မရပါဘူး။
+
+#### 2. Consistent Data When Insert/Remove
+Offset pagination နဲ့ပြောင်းပြန် insert/remove ကြောင့် data တွေပျောက်သွားတာ၊ ထပ်နေတာတွေမရှိတဲ့၊ consistent ဖြစ်တဲ့ data ကိုရနိုင်ပါတယ်။ Insert/remove က ဘယ်လောက်ပဲ frequency မြင့်နေသည်ဖြစ်စေ data loss မဖြစ်နိုင်ပါဘူး။
+
+နောက်တခေါက်ထပ်ပြောရရင် data အသစ်ဝင်တာ၊ ဖျက်တာ ခဏခဏမရှိတဲ့ system မျိုးမှာဆိုရင် ဒါကိုထည့်မစဉ်းစားလည်း ရနိုင်ပါသေးတယ်။
