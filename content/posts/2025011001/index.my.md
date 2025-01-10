@@ -68,3 +68,9 @@ db.records.find(
 Offset pagination နဲ့ပြောင်းပြန် insert/remove ကြောင့် data တွေပျောက်သွားတာ၊ ထပ်နေတာတွေမရှိတဲ့၊ consistent ဖြစ်တဲ့ data ကိုရနိုင်ပါတယ်။ Insert/remove က ဘယ်လောက်ပဲ frequency မြင့်နေသည်ဖြစ်စေ data loss မဖြစ်နိုင်ပါဘူး။
 
 နောက်တခေါက်ထပ်ပြောရရင် data အသစ်ဝင်တာ၊ ဖျက်တာ ခဏခဏမရှိတဲ့ system မျိုးမှာဆိုရင် ဒါကိုထည့်မစဉ်းစားလည်း ရနိုင်ပါသေးတယ်။
+
+### Drawbacks of Cursor Pagination
+Cursor pagination ကလည်း silver bullet မဟုတ်တဲ့အတွက် အားနည်းချက်တွေရှိပါတယ်။
+
+#### 1. Complexity
+Cursor pagination က offset pagination ထက်စာရင် implement လုပ်ရတာ ပိုရှုပ်ပါတယ်။ ထည့်တွက်ရတာတွေလည်း ပိုများပါတယ်။ ဥပမာ `incrementalAUTO_INCREMENT` ID ကို မသုံးချင်ဘူး၊ `created_at` လို column မျိုးကိုလည်း အကြောင်းအမျိုးမျိုးကြောင့် မသုံးချင်ဘူးဆိုရင် UUID v7 လိုမျိုးကိုသုံးရပါမယ်၊ client ဘက်က request လုပ်လိုက်တဲ့ cursor က invalid ဖြစ်ပြီး data ထွက်မလာခဲ့ရင် business logic ပေါ်မူတည်ပြီး ဘယ် data ကို ပြန်ပေးရမယ် စသည်ဖြင့်ပေါ့။
