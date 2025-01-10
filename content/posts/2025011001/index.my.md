@@ -19,8 +19,13 @@ FROM records
 OFFSET 20
 LIMIT 20
 ```
-
 MongoDB မှာဆိုရင်လည်း အဲလိုပါပဲ။
 ```javascript
 db.records.find({}, { limit: 20, skip: 20 })
 ```
+
+### Drawbacks of Offset Pagination
+Offset pagination မှာအဓိက အားနည်းချက် နှစ်ခုရှိပါတယ်။
+
+#### Performance Issue on Large Dataset
+ပထမတခုက performance issue ပါ။ Dataset ကအရမ်းကြီးလာပြီဆိုရင် `OFFSET` က ပြဿနာပေးလာပါတယ်။ လိုချင်တဲ့ data ကိုမထုတ်ပေးခင် table တခုလုံးကို scan လုပ်ဖို့လိုတဲ့အတွက်ပါ။ Query က complex ဖြစ်ရင် ပိုတောင်ဆိုးပါသေးတယ်။ Database တခုထဲသုံးထားတာမျိုးဆို အဲလို query မျိုးကြောင့် system တခုလုံးရဲ့ performance ကိုပါ ထိခိုက်စေပါတယ်။ Microservices မှာဆိုရင်တော့ service တခုလုံးပေါ့။
