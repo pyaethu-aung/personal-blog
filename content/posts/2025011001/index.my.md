@@ -29,3 +29,10 @@ Offset pagination မှာအဓိက အားနည်းချက် နှ
 
 #### Performance Issue on Large Dataset
 ပထမတခုက performance issue ပါ။ Dataset ကအရမ်းကြီးလာပြီဆိုရင် `OFFSET` က ပြဿနာပေးလာပါတယ်။ လိုချင်တဲ့ data ကိုမထုတ်ပေးခင် table တခုလုံးကို scan လုပ်ဖို့လိုတဲ့အတွက်ပါ။ Query က complex ဖြစ်ရင် ပိုတောင်ဆိုးပါသေးတယ်။ Database တခုထဲသုံးထားတာမျိုးဆို အဲလို query မျိုးကြောင့် system တခုလုံးရဲ့ performance ကိုပါ ထိခိုက်စေပါတယ်။ Microservices မှာဆိုရင်တော့ service တခုလုံးပေါ့။
+
+#### Inconsistent Data When Insert/Remove
+ဒုတိယတခုက consistent ဖြစ်တဲ့ data ကိုမရတာပါ။ ဒီတခုက အပြောင်းအလဲသိပ်မများတဲ့ system မျိုးမှာဆိုရင် သိပ်မသိသာပါဘူး။ Social media app မျိုး၊ B2C နဲ့ C2C marketplace app မျိုးမှာဆိုရင် consistent ဖြစ်တဲ့ data ကို မပေးနိုင်တာက တကယ့်ပြဿနာပါ။
+
+ဥပမာအနေနဲ့ပြောရရင် database table ထဲမှာ ID `1` ကနေ `100` အထိ record ၁၀၀ ရှိပြီး၊ descending order နဲ့ data ပြန်ပေးမယ်ဆိုကြပါစို့။ ပထမဆုံးအကြိမ်မှာ `OFFSET 0 LIMIT 20` နဲ့ data တောင်းလိုက်ရင် ID `100` ကနေ `81` အထိ record ၂၀ ရလာပါမယ်။ ဒုတိယအကြိမ်မှာ `OFFSET 20 LIMIT 20` နဲ့ data ထပ်တောင်းမှာဖြစ်တဲ့အတွက် ID `61` ကနေ `80` အထိ record ၂၀ ထပ်ရလာပါမယ်။ ဒီအထိ အားလုံးအဆင်ပြေနေပါသေးတယ်။
+
+အဲဒီမှာ ဒုတိယအကြိမ်မတိုင်ခင် ID `101` နဲ့ data အသစ်ထပ်ဝင်လာရင်  ပြဿနာစပါပြီ။ `OFFSET 20 LIMIT 20` ဖြစ်တဲ့အတွက် ID `101` ကနေ `82` အထိ record ၂၀ ကိုကျော်လိုက်ပြီး ID `81` ကနေ `62` အထိ record ၂၀ ကို ပြန်ပေးလိုက်မှာပါ။ Infinite scroll မှာဆိုရင် ID `81` က နှစ်ခုပြပြီး ထပ်သွားပါပြီ။
