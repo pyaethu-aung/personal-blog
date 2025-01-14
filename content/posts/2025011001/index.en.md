@@ -61,3 +61,16 @@ db.records.find(
   { created_at: { $lt: 1736533304 } }
 ).limit(20);
 ```
+
+### Pros of Cursor Pagination
+Since condition-based query can be used, the issues encountered in [offset pagination](#offset-pagination) are effectively resolved.
+
+#### 1. Efficient Queries and Index Utilization
+Since `OFFSET` is no longer used, there is no need to scan the entire table or collection, resulting in improved query performance.
+
+With condition-based skipping, it becomes possible to create indexes specifically for pagination. Whether it’s SQL or NoSQL, indexes cannot be created for `OFFSET`, but they can be utilized effectively in this approach.
+
+#### 2. Consistent Data When Insert/Delete
+With cursor pagination, issues like missing or duplicated data caused by frequent inserts or deletes in offset pagination are resolved. This approach ensures consistent data retrieval, regardless of how frequently data is inserted or deleted, eliminating the possibility of data loss.
+
+However, in systems where data additions or deletions occur rarely, it might not be necessary to consider these issues as a priority.
