@@ -51,11 +51,13 @@ It can be written in SQL like below:
 ```sql
 SELECT *
 FROM records
-OFFSET 20
-LIMIT 2
+WHERE created_at < 1736533304
+LIMIT 20;
 ```
 
 It's similar in MongoDB too.
 ```javascript
-db.records.find({}, { limit: 20, skip: 20 })
+db.records.find(
+  { created_at: { $lt: 1736533304 } }
+).limit(20);
 ```
