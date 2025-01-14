@@ -74,3 +74,22 @@ With condition-based skipping, it becomes possible to create indexes specificall
 With cursor pagination, issues like missing or duplicated data caused by frequent inserts or deletes in offset pagination are resolved. This approach ensures consistent data retrieval, regardless of how frequently data is inserted or deleted, eliminating the possibility of data loss.
 
 However, in systems where data additions or deletions occur rarely, it might not be necessary to consider these issues as a priority.
+
+### Drawbacks of Cursor Pagination
+Cursor pagination is not a silver bullet, and it comes with its own limitations.
+
+#### 1. Complexity
+Cursor pagination is more complex to implement compared to [offset pagination](#offset-pagination). It requires additional calculations and considerations. For instance, if you prefer not to use an `AUTO_INCREMENT` ID or cannot rely on the `created_at` column due to some reasons, you might need to adopt alternatives like UUID v7. Furthermore, if the cursor provided by the client is invalid and no data is returned from database, you’ll need to handle the business logic to decide which data to send back.
+
+#### 2. Inflexibility
+Cursor pagination works well when navigating sequentially. However, it’s not suited for jumping directly between pages (e.g., from page 1 to page 5). Achieving this requires additional workarounds, and even then, the solution might not be efficient.
+
+Another drawback is that reverse navigation can be challenging. For instance, if you’re on page 5 and want to go back to page 4, it’s not straightforward. To handle this, you’d need to store the data for previous pages locally, such as in local storage.
+
+These issues are less significant in scenarios like infinite scroll, where sequential loading of data is the norm.
+
+#### 3. Depends on Sort and Order By
+This limitation ties into the [inflexibility](#2-inflexibility) issue. For example, if you’re on page 5 and decide to sort by a different column, such as the name column, or switch from ascending to descending order, it’s not feasible with cursor pagination. Even if you manage to implement such functionality, it won’t be efficient. While there are workarounds to achieve these tasks, they often come with compromises, which is why it’s important to highlight this upfront.
+
+#### 4. Misc
+Another consideration, though rare, is columns used for sorting must be unique. While this isn’t an issue for fields like ID, it can raise a problem for columns like `created_at`, where duplicate values are possible, especially down to the millisecond level.
