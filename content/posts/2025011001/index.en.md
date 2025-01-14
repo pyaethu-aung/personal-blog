@@ -7,6 +7,8 @@ slug = "cursor-pagination"
 tags = ["postgres", "mongodb", "sql", "nosql"]
 +++
 
+[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်]({{< relref path="2025011001/index.my.md" lang="my" >}})
+
 Developers who work on mobile and web apps, those who have written CRUD APIs, and who have worked with third-party APIs are likely to be very familiar with pagination. If you’re building an API, you might add query parameters like `limit`, and `ski`p to the URL. As part of the validation, you might set a maximum value for limit, and so on.
 
 For mobile developers, [infinite scroll](https://en.wiktionary.org/wiki/infinite_scroll) often require triggering the next API call when the user scrolls to a certain point. Since these concepts are likely well-known to most of you, I’ll skip straight to the main point.

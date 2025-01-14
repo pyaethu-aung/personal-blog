@@ -7,6 +7,8 @@ slug = "cursor-pagination"
 tags = ["postgres", "mongodb", "sql", "nosql"]
 +++
 
+[Read this article in English]({{< relref path="2025011001/index.en.md" lang="en" >}})
+
 Mobile နဲ့ web app ရေးတဲ့သူတွေ၊ CURD API ရေးဖူးတဲ့သူတွေနဲ့ third-party API သုံးပြီးရေးဖူးတဲ့ programmer တွေဆိုရင် pagination ကို ရင်းရင်းနီးနီးသိကြမှာပါ။ ကိုယ်က API ရေးတဲ့သူဆိုရင် URL မှာ `limit` နဲ့ `skip` လိုမျိုး query parameter တွေထည့်ပေးတာမျိုး၊ validation အနေနဲ့ဆိုရင် `limit` မှာ အများဆုံး ဘယ်လောက်ပဲပေးထားတာမျိုး စသည်ဖြင့်ပေါ့။ Mobile developer တွေဆိုရင်လည်း [infinite scroll](https://en.wiktionary.org/wiki/infinite_scroll) လိုမျိုးတွေမှာ user က scroll လုပ်တာဘယ်နေရာကိုရောက်နေရင် နောက်တ page အတွက် API ကိုကြိုခေါ်ရမယ် ဘာညာပေါ့။ ဒါတွေက အားလုံးသိပြီးသားဖြစ်လောက်တဲ့အတွက် လိုရင်းကိုပဲသွားလိုက်ပါမယ်။
 
 ## Offset Pagination
