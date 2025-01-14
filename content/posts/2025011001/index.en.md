@@ -93,3 +93,5 @@ This limitation ties into the [inflexibility](#2-inflexibility) issue. For examp
 
 #### 4. Misc
 Another consideration, though rare, is columns used for sorting must be unique. While this isn’t an issue for fields like ID, it can raise a problem for columns like `created_at`, where duplicate values are possible, especially down to the millisecond level.
+
+## Conclusion
