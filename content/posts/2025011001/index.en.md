@@ -21,6 +21,7 @@ FROM records
 OFFSET 20
 LIMIT 20;
 ```
+
 It's similar in MongoDB too.
 ```javascript
 db.records.find({}, { limit: 20, skip: 20 })
@@ -42,3 +43,19 @@ Now, imagine that before the second request, a new record with ID `101` is added
 In scenarios like infinite scroll, this duplication can lead to a poor user experience where the same record is displayed twice. In small teams with only one QA tester, this issue can sometimes go unnoticed during the testing phase.
 
 The same issue arises if a record is deleted during pagination. For example, if the record with ID `100` is deleted before the second query, the result changes. Using `OFFSET 20 LIMIT 20` will now return records from ID `79` to `60`, completely skipping ID `80`. This issue can occur with both hard deletes and soft deletes that utilize a deleted_at column.
+
+## Cursor Pagination
+Cursor pagination is different from offset pagination. It uses identifiers like [ULID](https://github.com/ulid/spec) or timestamps such as `created_at` to paginate through data.
+
+It can be written in SQL like below:
+```sql
+SELECT *
+FROM records
+OFFSET 20
+LIMIT 2
+```
+
+It's similar in MongoDB too.
+```javascript
+db.records.find({}, { limit: 20, skip: 20 })
+```
