@@ -1,7 +1,7 @@
 +++
 title = "Cursor Pagination"
 date = '2025-01-12T23:07:00+07:00'
-draft = true
+draft = false
 lang = "en"
 slug = "cursor-pagination"
 tags = ["postgres", "mongodb", "sql", "nosql"]
@@ -95,3 +95,8 @@ This limitation ties into the [inflexibility](#2-inflexibility) issue. For examp
 Another consideration, though rare, is columns used for sorting must be unique. While this isn’t an issue for fields like ID, it can raise a problem for columns like `created_at`, where duplicate values are possible, especially down to the millisecond level.
 
 ## Conclusion
+In summary, there’s no universal silver bullet solution when it comes to pagination. The choice depends heavily on the nature of the system and its requirements.
+
+For instance, if you decide to use [cursor pagination](#cursor-pagination) because your API is primarily for mobile use, you might run into issues when scaling to a web version later. On the other hand, relying on [offset pagination](#offset-pagination), becuase inserts and deletes are infrequent, could lead to performance bottlenecks if those operations increase over time.
+
+In consumer apps, enforcing a force update for users is more challenging than it might seem. The larger your user base, the more complex these decisions become. When facing such scenarios, introducing API versioning can be an effective way to handle the transition and ensure compatibility across different use cases.
