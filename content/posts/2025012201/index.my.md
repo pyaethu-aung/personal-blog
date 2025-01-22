@@ -49,3 +49,6 @@ services:
 ```
 
 တခုသတိထားသင့်တာက အခု post ကိုရေးနေတဲ့အချိန်မှာ Air ရဲ့ [latest release](https://github.com/air-verse/air/releases/tag/v1.61.7) က Go v1.23 အောက်ကို support မလုပ်ပါဘူး။ ကိုယ်က အကြောင်းကြောင်းကြောင့် Go version အနိမ့်မှာသုံးဖို့လိုလာရင်တော့ Air version အနိမ့်ကို install လုပ်ဖို့လိုပါမယ်။
+
+## Last But Not Least
+`.air.toml` ထဲက `rerun_delay` ရဲ့ value ကို လိုအပ်သလို စက္ကန့်ပိုင်းလောက်ပိုထားဖို့တော့ အကြံပေးချင်ပါတယ်။ မဟုတ်ရင် code changes ကို save လိုက်တာနဲ့ မလိုပဲနဲ့ တန်းပြီး build လုပ်နေပါလိမ့်မယ်။
