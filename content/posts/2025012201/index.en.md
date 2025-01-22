@@ -30,3 +30,37 @@ You can initialize the `.air.toml` file automatically with:
 ```bash
 air init
 ```
+
+## Air in Dockerfile
+Since I often run projects with Docker, I install Air directly in the **Dockerfile** and use [Docker Compose](https://docs.docker.com/compose/) to mount the codebase directory for live reloading.
+
+Dockerfile
+```dockerfile
+FROM golang:1.23.4-bookworm
+
+WORKDIR /app
+
+RUN go install github.com/air-verse/air@latest
+
+COPY . .
+RUN go mod download
+
+CMD ["air", "-c", ".air.toml"]
+```
+
+docker-compose.yaml
+```yaml
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app
+```
+
+At the time of writing this post, [the latest release](https://github.com/air-verse/air/releases/tag/v1.61.7) of Air doesn’t support **Go versions below 1.23**. If, for some reason, you’re using an older Go version, you’ll need to install an earlier version of Air that’s compatible.
