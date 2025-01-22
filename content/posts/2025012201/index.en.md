@@ -64,3 +64,7 @@ services:
 ```
 
 At the time of writing this post, [the latest release](https://github.com/air-verse/air/releases/tag/v1.61.7) of Air doesn’t support **Go versions below 1.23**. If, for some reason, you’re using an older Go version, you’ll need to install an earlier version of Air that’s compatible.
+
+## Last But Not Least
+
+I’d recommend setting a slightly higher value for the `rerun_delay` in the `.air.toml` file. Without this adjustment, Air might unnecessarily trigger builds immediately after saving code changes.
