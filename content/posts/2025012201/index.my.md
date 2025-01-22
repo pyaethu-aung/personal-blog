@@ -15,3 +15,37 @@ Go လိုမျိုး compiled language အတော်များမျ�
 ကျွန်တော်ကတော့ live reloading အတွက် [Air](https://github.com/air-verse/air) ကိုသုံးပါတယ်။ ဘာကောင်းလို့ ညာကောင်းလို့ဆိုတာထက် ex-coworker တရောက်ကစသုံးတာနဲ့ လိုက်သုံးဖြစ်လိုက်တာပါပဲ။ တချို့ အဆင်မပြေတာတွေရှိပေမဲ့လည်း ကျွန်တော်အခုစမ်းရေးနေတဲ့ image processing server အတွက်လည်း Air ပဲသုံးထားလိုက်ပါတယ်။
 
 Install လုပ်တာကလွယ်ပါတယ်။ `go install github.com/air-verse/air@latest` နဲ့ install လုပ်၊ configuration file အနေနဲ့ `.air.toml` file ကို set up လုပ်ပြီး `air -c .air.toml` နဲ့ project ကို run လိုက်ရုံပါပဲ။ `air init` နဲ့ `.air.toml` file ကို initiate လုပ်လို့လည်းရပါတယ်။
+
+## Air in Dockerfile
+ကျွန်တော်ကတော့ Docker နဲ့ run ရတာများတဲ့အတွက် Dockerfile ထဲမှာ Air ကို install လုပ်ပြီး [Docker Compose](https://docs.docker.com/compose/) နဲ့ codebase directory ကို mount လုပ်ပြီးသုံးပါတယ်။
+
+Dockerfile
+```yaml
+FROM golang:1.23.4-bookworm
+
+WORKDIR /app
+
+RUN go install github.com/air-verse/air@latest
+
+COPY . .
+RUN go mod download
+
+CMD ["air", "-c", ".air.toml"]
+```
+
+docker-compose.yaml
+```yaml
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app
+```
+
+တခုသတိထားသင့်တာက အခု post ကိုရေးနေတဲ့အချိန်မှာ Air ရဲ့ [latest release](https://github.com/air-verse/air/releases/tag/v1.61.7) က Go v1.23 အောက်ကို support မလုပ်ပါဘူး။ ကိုယ်က အကြောင်းကြောင်းကြောင့် Go version အနိမ့်မှာသုံးဖို့လိုလာရင်တော့ Air version အနိမ့်ကို install လုပ်ဖို့လိုပါမယ်။
