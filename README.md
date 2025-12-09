@@ -21,9 +21,8 @@ This project is a personal blog built using [Hugo](https://gohugo.io/) and the [
     brew install hugo
     ```
 
-3. Initialize and tidy Hugo modules:
+3. Tidy Hugo modules:
     ```bash
-    hugo mod init github.com/yourusername/personal-blog
     hugo mod tidy
     ```
 
