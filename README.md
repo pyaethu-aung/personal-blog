@@ -3,6 +3,7 @@
 [![Deploy Hugo site to Pages](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml)
 [![Security](https://github.com/pyaethu-aung/personal-blog/actions/workflows/security.yml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/security.yml)
 [![License](https://img.shields.io/github/license/pyaethu-aung/personal-blog)](https://opensource.org/licenses/MIT)
+[![Hugo](https://img.shields.io/badge/Hugo-0.152.2-blue)](https://gohugo.io/)
 
 This project is a personal blog built using [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme.
 
