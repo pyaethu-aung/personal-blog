@@ -1,0 +1,45 @@
+name: Branch Name Validation
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  branch-name-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name format
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+
+          # Allow main branch
+          if [ "$BRANCH_NAME" = "main" ]; then
+            echo "✅ Branch name is valid: $BRANCH_NAME"
+            exit 0
+          fi
+
+          # Check for valid prefixes: feature/, bugfix/, hotfix/, refactor/, docs/, test/, ci/, chore/
+          if [[ $BRANCH_NAME =~ ^(feature|bugfix|hotfix|refactor|docs|test|ci|chore)\/[a-z0-9_-]+$ ]]; then
+            echo "✅ Branch name is valid: $BRANCH_NAME"
+            exit 0
+          fi
+
+          echo "❌ Branch name '$BRANCH_NAME' does not follow the naming convention."
+          echo ""
+          echo "Valid branch name prefixes:"
+          echo "  - feature/    (for new features)"
+          echo "  - bugfix/     (for bug fixes)"
+          echo "  - hotfix/     (for hotfixes)"
+          echo "  - refactor/   (for refactoring)"
+          echo "  - docs/       (for documentation)"
+          echo "  - test/       (for tests)"
+          echo "  - ci/         (for CI/CD updates)"
+          echo "  - chore/      (for chores and maintenance)"
+          echo ""
+          echo "Examples of valid branch names:"
+          echo "  - feature/add-dark-mode"
+          echo "  - bugfix/fix-navigation"
+          echo "  - docs/update-readme"
+          echo "  - ci/update-hugo-workflow"
+          echo "  - chore/update-dependencies"
+          exit 1
