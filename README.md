@@ -63,6 +63,35 @@ This project uses GitHub Actions to deploy the site to GitHub Pages. The workflo
 
 Feel free to open issues or submit pull requests for any improvements or bug fixes.
 
+### Branch Naming Convention
+
+This project follows a structured branch naming convention to maintain clarity and organization. All branches must follow this format:
+
+```
+prefix/description
+```
+
+**Valid prefixes:**
+- `feature/` - for new features
+- `bugfix/` - for bug fixes
+- `hotfix/` - for hotfixes
+- `refactor/` - for refactoring
+- `docs/` - for documentation
+- `test/` - for tests
+- `ci/` - for CI/CD updates
+- `chore/` - for maintenance and dependencies
+
+**Examples:**
+- `feature/add-dark-mode`
+- `bugfix/fix-navigation`
+- `docs/update-readme`
+- `docs/installation-guide`
+- `ci/update-hugo-workflow`
+- `chore/update-dependencies`
+- `chore/blowfish-theme`
+
+**Note:** Branch names must use lowercase letters, numbers, hyphens, and underscores only.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
