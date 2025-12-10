@@ -1,5 +1,7 @@
 # Personal Blog
 
+[![Deploy Hugo site to Pages](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml)
+
 This project is a personal blog built using [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme.
 
 ## Prerequisites
