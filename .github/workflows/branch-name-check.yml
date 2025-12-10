@@ -19,7 +19,7 @@ jobs:
           fi
 
           # Check for valid prefixes: feature/, bugfix/, hotfix/, refactor/, docs/, test/, ci/, chore/
-          if [[ $BRANCH_NAME =~ ^(feature|bugfix|hotfix|refactor|docs|test|ci|chore)\/[a-z0-9_-]+$ ]]; then
+          if [[ $BRANCH_NAME =~ ^(feature|bugfix|hotfix|refactor|docs|test|ci|chore|dependabot)\/[a-z0-9_-]+$ ]]; then
             echo "✅ Branch name is valid: $BRANCH_NAME"
             exit 0
           fi
@@ -35,6 +35,7 @@ jobs:
           echo "  - test/       (for tests)"
           echo "  - ci/         (for CI/CD updates)"
           echo "  - chore/      (for chores and maintenance)"
+          echo "  - dependabot/ (for dependency updates)"
           echo ""
           echo "Examples of valid branch names:"
           echo "  - feature/add-dark-mode"
