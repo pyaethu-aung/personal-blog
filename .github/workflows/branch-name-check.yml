@@ -11,6 +11,10 @@ jobs:
       - name: Check branch name format
         run: |
           BRANCH_NAME="${{ github.head_ref }}"
+          AUTHOR="${{ github.actor }}"
+
+          echo "Branch: $BRANCH_NAME"
+          echo "Author: $AUTHOR"
 
           # Allow main branch
           if [ "$BRANCH_NAME" = "main" ]; then
@@ -18,7 +22,12 @@ jobs:
             exit 0
           fi
 
-          # Check for valid prefixes: feature/, bugfix/, hotfix/, refactor/, docs/, test/, ci/, chore/
+          # Allow Dependabot branches
+          if [[ "$BRANCH_NAME" =~ ^dependabot/ ]] || [ "$AUTHOR" = "dependabot[bot]" ]; then
+            echo "✅ Dependabot branch allowed: $BRANCH_NAME"
+            exit 0
+          fi
+
           if [[ $BRANCH_NAME =~ ^(feature|bugfix|hotfix|refactor|docs|test|ci|chore)\/[a-z0-9_-]+$ ]]; then
             echo "✅ Branch name is valid: $BRANCH_NAME"
             exit 0
