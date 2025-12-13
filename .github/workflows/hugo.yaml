@@ -6,6 +6,19 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "archetypes/**"
+      - "assets/**"
+      - "config/**"
+      - "content/**"
+      - "data/**"
+      - "i18n/**"
+      - "layouts/**"
+      - "resources/**"
+      - "static/**"
+      - "themes/**"
+      - ".github/workflows/hugo.yaml"
+      - "hugo.toml"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -48,6 +61,16 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      # Cache Hugo resources & build cache
+      - name: Cache Hugo resources
+        uses: actions/cache@v5
+        with:
+          path: |
+            ${{ runner.temp }}/hugo_cache
+            resources/_gen
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.md', '**/*.html', '**/*.scss', '**/*.css') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
