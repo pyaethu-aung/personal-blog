@@ -114,3 +114,8 @@ on:
 1. `push` နဲ့ `pull_request` နှစ်ခုလုံးမှာ အလုပ်လုပ်ပါမယ်။
 2. `branches: [main]` ဆိုတာက `main` branch ကို code push တာ ဒါမှမဟုတ် `main` branch ကို PR တင်တာမျိုးလုပ်မှသာ အလုပ်လုပ်ပါလိမ့်မယ်။
 3. `paths:` မှာ `cmd/**`၊ `pkg/**` အစရှိတဲ့ Go file တွေ ဒါမှမဟုတ် `lint.yml` ကို ပြင်မှသာ ဒီ workflow ကို run မှာဖြစ်လို့ လိုအပ်တဲ့အချိန်မှာပဲ run ပြီး GitHub Actions အတွက် ကုန်ကျစရိတ်ကိုလျှော့ချလို့ရပါတယ်။
+
+### Preparing Environment And Caching
+1. `runs-on: ubuntu-latest`: Job ကို Ubuntu latest environment ပေါ်မှာ run ပါမယ်။
+2. `uses: actions/setup-go@v6`: Go v1.25.5 ကို install လုပ်ပါမယ်။
+3. `actions/cache@v5`: `go.sum` file မှာ အပြောင်းအလဲမရှိသ၍ Go modules တွေကို ပြန်ပြီး download လုပ်စရာမလိုတော့ဘဲ cache ကနေ ပြန်ယူသုံးတဲ့အတွက် build time ကို သိသိသာသာ လျှော့ချပေးပါတယ်။ အချိန်ကုန်ငွေကုန်သက်သာစေတဲ့ အဓိကအချက်ပါ။
