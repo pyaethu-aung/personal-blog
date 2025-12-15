@@ -88,3 +88,29 @@ jobs:
           fi
           echo "✅ Dependencies are tidy"
 ```
+
+## Breaking Down
+### Staring `on:`
+```yaml
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "pkg/**"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/lint.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "pkg/**"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/lint.yml"
+```
+ဒီ `on:` အပိုင်းက workflow ကို ဘယ်အချိန်မှာစအလုပ်လုပ်မယ်ဆိုတာကို သတ်မှတ်ထားတာပါ။
+1. `push` နဲ့ `pull_request` နှစ်ခုလုံးမှာ အလုပ်လုပ်ပါမယ်။
+2. `branches: [main]` ဆိုတာက `main` branch ကို code push တာ ဒါမှမဟုတ် `main` branch ကို PR တင်တာမျိုးလုပ်မှသာ အလုပ်လုပ်ပါလိမ့်မယ်။
+3. `paths:` မှာ `cmd/**`၊ `pkg/**` အစရှိတဲ့ Go file တွေ ဒါမှမဟုတ် `lint.yml` ကို ပြင်မှသာ ဒီ workflow ကို run မှာဖြစ်လို့ လိုအပ်တဲ့အချိန်မှာပဲ run ပြီး GitHub Actions အတွက် ကုန်ကျစရိတ်ကိုလျှော့ချလို့ရပါတယ်။
