@@ -12,10 +12,10 @@ tags = ["github-actions", "go"]
 ## နိဒါန်း
 Software development မှာ code quality နဲ့ consistency ဆိုတာ မဖြစ်မနေလိုအပ်တဲ့အရာတွေပါ။ Team နဲ့လုပ်ရတဲ့ project တွေမှာဆို coding style တယောက်တမျိုးစီရေးကြတာတွေကြောင့် ဖတ်ရခက်တာမျိုးတွေ၊ bug ဖြစ်စေနိုင်တဲ့ ပုံစံမျိုးတွေ မပါဖို့နဲ့ unreachable code တွေ မရှိနေဖို့ အတွက် PR နဲ့  stable branch ကို code merge တာတွေမှာ linting က အရေးကြီးပါတယ်။
 
-အခု post မှာတော့ [PIT calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) မှာသုံးထားတဲ့ linter အတွက် GitHub action အကြောင်းကွက်ပြီး ပြောပြချင်လို့ပါ။ အလုပ်မှာကတော့ သုံးဖြစ်ပေမည့် personal project မှာတော့ Hugo ရဲ့ deployment အတွက်ကလွဲရင် အခုမှစသုံးဖြစ်တာပါ။
+အခု post မှာတော့ [PIT calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) မှာသုံးထားတဲ့ linter အတွက် workflow အကြောင်းကွက်ပြီး ပြောပြချင်လို့ပါ။ အလုပ်မှာကတော့ သုံးဖြစ်ပေမည့် personal project မှာတော့ Hugo ရဲ့ deployment အတွက်ကလွဲရင် အခုမှစသုံးဖြစ်တာပါ။
 
 ## Action File For Linting
-ဒါက ကျွန်တော်လက်ရှိသုံးဖြစ်နေတဲ့ Go အတွက် linter action ပါ။
+ဒါက ကျွန်တော်လက်ရှိသုံးဖြစ်နေတဲ့ Go အတွက် linter workflow ပါ။
 ```yaml
 name: Lint
 
@@ -147,4 +147,7 @@ fi
 echo "✅ Dependencies are tidy"
 ```
 1. `go mod tidy`: မလိုအပ်တဲ့ dependency တွေကို ရှင်းပေးပြီး လိုတာတွေကိုထည့်ပေးပါတယ်။
-2. `if [ -n "$(git diff --name-only go.mod go.sum)" ]; then`: `git diff` နဲ့ `go.mod` ဒါမှမဟုတ် `go.sum` file တွေမှာ ပြောင်းလဲတာရှိမရှိ စစ်တာပါ။ ပြောင်းလဲတာရှိရင် (ဆိုလိုတာက developer က `go mod tidy` ကို မ run ခဲ့ဘူး) လို့ ယူဆပြီး workflow ကို `exit 1` နဲ့ fail လိုက်မှာပါ။ 
+2. `if [ -n "$(git diff --name-only go.mod go.sum)" ]; then`: `git diff` နဲ့ `go.mod` ဒါမှမဟုတ် `go.sum` file တွေမှာ ပြောင်းလဲတာရှိမရှိ စစ်တာပါ။ ပြောင်းလဲတာရှိရင် (ဆိုလိုတာက developer က `go mod tidy` ကို မ run ခဲ့ဘူး) လို့ ယူဆပြီး workflow ကို `exit 1` နဲ့ fail လိုက်မှာပါ။
+
+## နိဂုံး
+ဒီ linting workflow က code quality နဲ့ issue ကို ၁၀၀% မစစ်ပေးနိုင်ပါဘူး။ PR review လုပ်တဲ့အခါမှာ အကူအညီဖြစ်အောင်နဲ့ reviewer မမြင်လိုက်တာတွေ ပါမသွားအောင် တဘက်တလမ်းကနေ ကူညီနိုင်တာပဲရှိတာပါ။ မှန်ကန်တဲ့ design pattern တွေသုံးဖို့၊ maintainability ကို ကျစေတဲ့ cognitive complexity နည်းဖို့တွေကတော့ ကိုယ်တိုင်ပဲလုပ်ရမှာပါ။ နောက်ပိုင်းကျရင် တခြားအသုံးဝင်တဲ့ workflow တွေလည်း ထပ်ရေးကြည့်ပါဦးမယ်။ အခုလက်ရှိ repo တွေမှာလည်း ကြည့်လို့ရပါတယ်။
