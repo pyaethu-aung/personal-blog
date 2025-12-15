@@ -135,3 +135,16 @@ echo "✅ Code formatting is correct"
 
 ### Static Code Analysis
 `go vet ./...`: format string မှားတာ(`%s` နေရာမှာ `%d` လိုမျိုး format specifier မှားသုံးထားတာမျိုး)တွေ၊ shadowed variable တွေ၊ struct tag မှားသုံးထားတာတွေ၊ unreachable code တွေနဲ့ unsafe conversion တွေကို စစ်ပေးတာပါ။
+
+### Checking Unused Dependencies
+```yaml
+go mod tidy
+if [ -n "$(git diff --name-only go.mod go.sum)" ]; then
+  echo "❌ go.mod/go.sum are not tidy. Run 'go mod tidy' to fix:"
+  git diff
+  exit 1
+fi
+echo "✅ Dependencies are tidy"
+```
+1. `go mod tidy`: မလိုအပ်တဲ့ dependency တွေကို ရှင်းပေးပြီး လိုတာတွေကိုထည့်ပေးပါတယ်။
+2. `if [ -n "$(git diff --name-only go.mod go.sum)" ]; then`: `git diff` နဲ့ `go.mod` ဒါမှမဟုတ် `go.sum` file တွေမှာ ပြောင်းလဲတာရှိမရှိ စစ်တာပါ။ ပြောင်းလဲတာရှိရင် (ဆိုလိုတာက developer က `go mod tidy` ကို မ run ခဲ့ဘူး) လို့ ယူဆပြီး workflow ကို `exit 1` နဲ့ fail လိုက်မှာပါ။ 
