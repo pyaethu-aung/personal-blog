@@ -12,4 +12,79 @@ tags = ["github-actions", "go"]
 ## နိဒါန်း
 Software development မှာ code quality နဲ့ consistency ဆိုတာ မဖြစ်မနေလိုအပ်တဲ့အရာတွေပါ။ Team နဲ့လုပ်ရတဲ့ project တွေမှာဆို coding style တယောက်တမျိုးစီရေးကြတာတွေကြောင့် ဖတ်ရခက်တာမျိုးတွေ၊ bug ဖြစ်စေနိုင်တဲ့ ပုံစံမျိုးတွေ မပါဖို့နဲ့ unreachable code တွေ မရှိနေဖို့ အတွက် PR နဲ့  stable branch ကို code merge တာတွေမှာ linting က အရေးကြီးပါတယ်။
 
-အခု post မှာတော့ PIT calculator မှာသုံးထားတဲ့ linter အတွက် GitHub action အကြောင်းကွက်ပြီး ပြောပြချင်လို့ပါ။ အလုပ်မှာကတော့ သုံးဖြစ်ပေမည့် personal project မှာတော့ Hugo ရဲ့ deployment အတွက်ကလွဲရင် အခုမှစသုံးဖြစ်တာပါ။
+အခု post မှာတော့ [PIT calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) မှာသုံးထားတဲ့ linter အတွက် GitHub action အကြောင်းကွက်ပြီး ပြောပြချင်လို့ပါ။ အလုပ်မှာကတော့ သုံးဖြစ်ပေမည့် personal project မှာတော့ Hugo ရဲ့ deployment အတွက်ကလွဲရင် အခုမှစသုံးဖြစ်တာပါ။
+
+## Action File For Linting
+ဒါက ကျွန်တော်လက်ရှိသုံးဖြစ်နေတဲ့ Go အတွက် linter action ပါ။
+```yaml
+name: Lint
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "pkg/**"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/lint.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "pkg/**"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/lint.yml"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.5"
+
+      # Caching prevents redownloading dependencies on every run until
+      # go.mod/go.sum changes
+      - name: Cache Go modules
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/go/pkg/mod # Go modules cache
+            ~/.cache/go-build # Go build cache
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+
+      # Ensures gofmt sees only actual Go code that belongs to your module
+      - name: Run go fmt
+        run: |
+          FILES=$(gofmt -s -l $(go list -f '{{.Dir}}' ./...))
+          if [ -n "$FILES" ]; then
+            echo "❌ Formatting issues found:"
+            echo "$FILES"
+            exit 1
+          fi
+          echo "✅ Code formatting is correct"
+
+      - name: Run go vet
+        run: |
+          go vet ./...
+          echo "✅ Code analysis passed"
+
+      - name: Check for imports
+        run: |
+          go mod tidy
+          if [ -n "$(git diff --name-only go.mod go.sum)" ]; then
+            echo "❌ go.mod/go.sum are not tidy. Run 'go mod tidy' to fix:"
+            git diff
+            exit 1
+          fi
+          echo "✅ Dependencies are tidy"
+```
