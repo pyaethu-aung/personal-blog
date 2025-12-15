@@ -120,7 +120,7 @@ on:
 2. `uses: actions/setup-go@v6`: Go v1.25.5 ကို install လုပ်ပါမယ်။
 3. `actions/cache@v5`: `go.sum` file မှာ အပြောင်းအလဲမရှိသ၍ Go modules တွေကို ပြန်ပြီး download လုပ်စရာမလိုတော့ဘဲ cache ကနေ ပြန်ယူသုံးတဲ့အတွက် build time ကို သိသိသာသာ လျှော့ချပေးပါတယ်။ အချိန်ကုန်ငွေကုန်သက်သာစေတဲ့ အဓိကအချက်ပါ။
 
-## Code Formatting
+### Code Formatting
 ```yaml
 FILES=$(gofmt -s -l $(go list -f '{{.Dir}}' ./...))
 if [ -n "$FILES" ]; then
@@ -132,3 +132,6 @@ echo "✅ Code formatting is correct"
 ```
 1. `gofmt -s -l`: သေချာ format မလုပ်ထားတဲ့ file list ကို ထုတ်ပေးပါတယ်။
 2. `if [ -n "$FILES" ]; then`: `$FILES` ထဲမှာ file တွေပါနေတယ်ဆိုရင် workflow ကို `exit 1` နဲ့ fail လိုက်မှာပါ။ ဒါက format မမှန်တဲ့ code တွေ `main` branch ထဲရောက်မသွားအောင် ကာကွယ်ထားတာပါ။
+
+### Static Code Analysis
+`go vet ./...`: format string မှားတာ(`%s` နေရာမှာ `%d` လိုမျိုး format specifier မှားသုံးထားတာမျိုး)တွေ၊ shadowed variable တွေ၊ struct tag မှားသုံးထားတာတွေ၊ unreachable code တွေနဲ့ unsafe conversion တွေကို စစ်ပေးတာပါ။
