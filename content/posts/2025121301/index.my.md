@@ -7,14 +7,14 @@ slug = "go-linter-with-github-actions"
 tags = ["github-actions", "go"]
 +++
 
-နောက်ဆုံး blog post ရေးခဲ့တာက ပြီးခဲ့တဲ့ဇန်နဝါရီလကဆိုတော့ ဘာမှမရေးဖြစ်ခဲ့တာ တနှစ်နီးပါးလောက်တောင် ရှိသွားခဲ့ပါပြီ။ ဒီကြားထဲမှာ ကိုယ်ရေးကိုယ်တာကိစ္စတွေနဲ့ အာရုံများနေတာရော ပျင်းနေတာရောပါတယ်။ ဒီရက်ပိုင်းမှ [Bubble Tea](https://github.com/charmbracelet/bubbletea) ကို စမ်းကြည့်ချင်တာရော personal income tax တွက်ဖို့ CLI app လေးတခုရေးချင်တာရောနဲ့ [PIT calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) လေးလုပ်ဖြစ်တယ်။ ရိုးရိုး CLI interface နဲ့ TUI interface ဆိုပြီး နှစ်ခုနဲ့ စမ်းကြည့်လို့ရပါတယ်။ Copilot အကူအညီနဲ့ ပါ README သေချာရေးဖြစ်သွားတော့ အဆင်ပြေရင် စမ်းကြည့်ကြစေချင်ပါတယ်။ Life insurance နဲ့ တခြား အခွန်သက်သာခွင့်တွေရယ် bonus နဲ့ တခြား taxable income တွေအတွက်ရယ်တော့ ထပ်ထည့်ဖို့တော့ ကျန်ပါဦးမယ်။
+နောက်ဆုံး blog post ရေးခဲ့တာက ပြီးခဲ့တဲ့ဇန်နဝါရီလကဆိုတော့ ဘာမှမရေးဖြစ်ခဲ့တာ တနှစ်နီးပါးလောက်တောင် ရှိသွားခဲ့ပါပြီ။ ဒီကြားထဲမှာ ကိုယ်ရေးကိုယ်တာကိစ္စတွေနဲ့ အာရုံများနေတာရော ပျင်းနေတာရောပါတယ်။ ဒီရက်ပိုင်းမှ [Bubble Tea](https://github.com/charmbracelet/bubbletea) ကို စမ်းကြည့်ချင်တာရော personal income tax တွက်ဖို့ CLI app လေးတခုရေးချင်တာရောနဲ့ [PIT Calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) လေးလုပ်ဖြစ်တယ်။ ရိုးရိုး CLI interface နဲ့ TUI interface ဆိုပြီး နှစ်ခုနဲ့ စမ်းကြည့်လို့ရပါတယ်။ Copilot အကူအညီနဲ့ ပါ README သေချာရေးဖြစ်သွားတော့ အဆင်ပြေရင် စမ်းကြည့်ကြစေချင်ပါတယ်။ Life insurance နဲ့ တခြား အခွန်သက်သာခွင့်တွေရယ် bonus နဲ့ တခြား taxable income တွေအတွက်ရယ်တော့ ထပ်ထည့်ဖို့တော့ ကျန်ပါဦးမယ်။
 
 ## နိဒါန်း
 Software development မှာ code quality နဲ့ consistency ဆိုတာ မဖြစ်မနေလိုအပ်တဲ့အရာတွေပါ။ Team နဲ့လုပ်ရတဲ့ project တွေမှာဆို coding style တယောက်တမျိုးစီရေးကြတာတွေကြောင့် ဖတ်ရခက်တာမျိုးတွေ၊ bug ဖြစ်စေနိုင်တဲ့ ပုံစံမျိုးတွေ မပါဖို့နဲ့ unreachable code တွေ မရှိနေဖို့ အတွက် PR နဲ့  stable branch ကို code merge တာတွေမှာ linting က အရေးကြီးပါတယ်။
 
-အခု post မှာတော့ [PIT calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) မှာသုံးထားတဲ့ linter အတွက် workflow အကြောင်းကွက်ပြီး ပြောပြချင်လို့ပါ။ အလုပ်မှာကတော့ သုံးဖြစ်ပေမည့် personal project မှာတော့ Hugo ရဲ့ deployment အတွက်ကလွဲရင် အခုမှစသုံးဖြစ်တာပါ။
+အခု post မှာတော့ [PIT Calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) မှာသုံးထားတဲ့ linter အတွက် workflow အကြောင်းကွက်ပြီး ပြောပြချင်လို့ပါ။ အလုပ်မှာကတော့ သုံးဖြစ်ပေမည့် personal project မှာတော့ Hugo ရဲ့ deployment အတွက်ကလွဲရင် အခုမှစသုံးဖြစ်တာပါ။
 
-## Action File For Linting
+## Workflow For Lint
 ဒါက ကျွန်တော်လက်ရှိသုံးဖြစ်နေတဲ့ Go အတွက် linter workflow ပါ။
 ```yaml
 name: Lint
@@ -90,7 +90,7 @@ jobs:
 ```
 
 ## Breaking Down
-### Staring `on:`
+### 1. Staring `on:`
 ```yaml
 on:
   push:
@@ -113,14 +113,14 @@ on:
 ဒီ `on:` အပိုင်းက workflow ကို ဘယ်အချိန်မှာစအလုပ်လုပ်မယ်ဆိုတာကို သတ်မှတ်ထားတာပါ။
 1. `push` နဲ့ `pull_request` နှစ်ခုလုံးမှာ အလုပ်လုပ်ပါမယ်။
 2. `branches: [main]` ဆိုတာက `main` branch ကို code push တာ ဒါမှမဟုတ် `main` branch ကို PR တင်တာမျိုးလုပ်မှသာ အလုပ်လုပ်ပါလိမ့်မယ်။
-3. `paths:` မှာ `cmd/**`၊ `pkg/**` အစရှိတဲ့ Go file တွေ ဒါမှမဟုတ် `lint.yml` ကို ပြင်မှသာ ဒီ workflow ကို run မှာဖြစ်လို့ လိုအပ်တဲ့အချိန်မှာပဲ run ပြီး GitHub Actions အတွက် ကုန်ကျစရိတ်ကိုလျှော့ချလို့ရပါတယ်။
+3. `paths:` မှာ `cmd/**`၊ `pkg/**` အစရှိတဲ့ Go file တွေ ဒါမှမဟုတ် workflow file `lint.yml` ကို ပြင်မှသာ ဒီ workflow ကို run မှာဖြစ်လို့ လိုအပ်တဲ့အချိန်မှာပဲ run ပြီး GitHub Actions အတွက် ကုန်ကျစရိတ်ကိုလျှော့ချလို့ရပါတယ်။
 
-### Preparing Environment And Caching
+### 2. Preparing Environment And Caching
 1. `runs-on: ubuntu-latest`: Job ကို Ubuntu latest environment ပေါ်မှာ run ပါမယ်။
 2. `uses: actions/setup-go@v6`: Go v1.25.5 ကို install လုပ်ပါမယ်။
 3. `actions/cache@v5`: `go.sum` file မှာ အပြောင်းအလဲမရှိသ၍ Go modules တွေကို ပြန်ပြီး download လုပ်စရာမလိုတော့ဘဲ cache ကနေ ပြန်ယူသုံးတဲ့အတွက် build time ကို သိသိသာသာ လျှော့ချပေးပါတယ်။ အချိန်ကုန်ငွေကုန်သက်သာစေတဲ့ အဓိကအချက်ပါ။
 
-### Code Formatting
+### 3. Code Formatting
 ```yaml
 FILES=$(gofmt -s -l $(go list -f '{{.Dir}}' ./...))
 if [ -n "$FILES" ]; then
@@ -133,10 +133,10 @@ echo "✅ Code formatting is correct"
 1. `gofmt -s -l`: သေချာ format မလုပ်ထားတဲ့ file list ကို ထုတ်ပေးပါတယ်။
 2. `if [ -n "$FILES" ]; then`: `$FILES` ထဲမှာ file တွေပါနေတယ်ဆိုရင် workflow ကို `exit 1` နဲ့ fail လိုက်မှာပါ။ ဒါက format မမှန်တဲ့ code တွေ `main` branch ထဲရောက်မသွားအောင် ကာကွယ်ထားတာပါ။
 
-### Static Code Analysis
+### 4. Static Code Analysis
 `go vet ./...`: format string မှားတာ(`%s` နေရာမှာ `%d` လိုမျိုး format specifier မှားသုံးထားတာမျိုး)တွေ၊ shadowed variable တွေ၊ struct tag မှားသုံးထားတာတွေ၊ unreachable code တွေနဲ့ unsafe conversion တွေကို စစ်ပေးတာပါ။
 
-### Checking Unused Dependencies
+### 5. Checking Unused Dependencies
 ```yaml
 go mod tidy
 if [ -n "$(git diff --name-only go.mod go.sum)" ]; then
