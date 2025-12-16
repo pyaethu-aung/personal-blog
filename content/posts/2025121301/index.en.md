@@ -150,3 +150,7 @@ echo "✅ Dependencies are tidy"
 ```
 1. `go mod tidy`: Removes unused dependencies and adds missing ones.
 2. `if [ -n "$(git diff --name-only go.mod go.sum)" ]; then`: The workflow runs `git diff` on `go.mod` and `go.sum`. If there are changes, it means the developer did not run `go mod tidy` locally before push. In that case, the workflow fails with `exit 1`.
+
+## Conclusion
+This linting workflow cannot check 100% of code quality issues. It helps pull request review and catches many common problems. But reviewers still need to review design patterns and cognitive complexity carefully. I may write about more useful workflows soon. You can also explore the repo in my GitHub for examples of other workflows.
+
