@@ -90,3 +90,63 @@ jobs:
           fi
           echo "✅ Dependencies are tidy"
 ```
+
+## Breaking Down
+### 1. Staring `on:`
+```yaml
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "pkg/**"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/lint.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "pkg/**"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/lint.yml"
+```
+This `on:` section defines when the workflow runs:
+1. It runs on both `push` and `pull_request`.
+2. `branches: [main]` means it runs only when pushing or creating a PR to the `main` branch.
+3. `paths:` means it runs only when files under `cmd/**`, `pkg/**`, or the workflow file (`lint.yml`) change. This avoids running unnecessarily and saves GitHub Actions minutes.
+
+### 2. Preparing Environment And Caching
+1. `runs-on: ubuntu-latest`: The job runs on an Ubuntu latest environment.
+2. `uses: actions/setup-go@v6`: Installs Go v1.25.5 on the runner.
+3. `actions/cache@v5`: Caches Go modules and build cache so that dependencies don’t need to be downloaded again when `go.mod` and `go.sum` don’t change.
+
+### 3. Code Formatting
+```yaml
+FILES=$(gofmt -s -l $(go list -f '{{.Dir}}' ./...))
+if [ -n "$FILES" ]; then
+  echo "❌ Formatting issues found:"
+  echo "$FILES"
+  exit 1
+fi
+echo "✅ Code formatting is correct"
+```
+1. `gofmt -s -l`: Lists Go files that are not formatted correctly.
+2. `if [ -n "$FILES" ]; then`: If `$FILES` is not empty, the workflow exits with a failure (`exit 1`). This prevents unformatted code from reaching the main branch.
+
+### 4. Static Code Analysis
+`go vet ./...`: It checks for common mistakes such as format string issues like using `%d` format specifier instead of `%s`, unused variables, incorrect struct tag, unreachable code, and unsafe conversions.
+
+### 5. Checking Unused Dependencies
+```yaml
+go mod tidy
+if [ -n "$(git diff --name-only go.mod go.sum)" ]; then
+  echo "❌ go.mod/go.sum are not tidy. Run 'go mod tidy' to fix:"
+  git diff
+  exit 1
+fi
+echo "✅ Dependencies are tidy"
+```
+1. `go mod tidy`: Removes unused dependencies and adds missing ones.
+2. `if [ -n "$(git diff --name-only go.mod go.sum)" ]; then`: The workflow runs `git diff` on `go.mod` and `go.sum`. If there are changes, it means the developer did not run `go mod tidy` locally before push. In that case, the workflow fails with `exit 1`.
