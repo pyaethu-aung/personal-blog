@@ -7,6 +7,8 @@ slug = "go-linter-with-github-actions"
 tags = ["github-actions", "go"]
 +++
 
+[Read this article in English]({{< relref path="2025121301/index.en.md" lang="en" >}})
+
 နောက်ဆုံး blog post ရေးခဲ့တာက ပြီးခဲ့တဲ့ဇန်နဝါရီလကဆိုတော့ ဘာမှမရေးဖြစ်ခဲ့တာ တနှစ်နီးပါးလောက်တောင် ရှိသွားခဲ့ပါပြီ။ ဒီကြားထဲမှာ ကိုယ်ရေးကိုယ်တာကိစ္စတွေနဲ့ အာရုံများနေတာရော ပျင်းနေတာရောပါတယ်။ ဒီရက်ပိုင်းမှ [Bubble Tea](https://github.com/charmbracelet/bubbletea) ကို စမ်းကြည့်ချင်တာရော personal income tax တွက်ဖို့ CLI app လေးတခုရေးချင်တာရောနဲ့ [PIT Calculator CLI app](https://github.com/pyaethu-aung/myanmar-pit-calculator) လေးလုပ်ဖြစ်တယ်။ ရိုးရိုး CLI interface နဲ့ TUI interface ဆိုပြီး နှစ်ခုနဲ့ စမ်းကြည့်လို့ရပါတယ်။ Copilot အကူအညီနဲ့ ပါ README သေချာရေးဖြစ်သွားတော့ အဆင်ပြေရင် စမ်းကြည့်ကြစေချင်ပါတယ်။ Life insurance နဲ့ တခြား အခွန်သက်သာခွင့်တွေရယ် bonus နဲ့ တခြား taxable income တွေအတွက်ရယ်တော့ ထပ်ထည့်ဖို့တော့ ကျန်ပါဦးမယ်။
 
 ## နိဒါန်း
