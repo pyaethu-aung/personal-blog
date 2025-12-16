@@ -1,6 +1,6 @@
 +++
 title = "Go Linter With GitHub Actions"
-date = '2025-12-13T22:59:00+07:00'
+date = '2025-12-16T23:04:19+07:00'
 draft = false
 lang = "en"
 slug = "go-linter-with-github-actions"
