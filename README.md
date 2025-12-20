@@ -3,7 +3,7 @@
 [![Deploy Hugo site to Pages](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml)
 [![Security](https://github.com/pyaethu-aung/personal-blog/actions/workflows/security.yml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/security.yml)
 [![License](https://img.shields.io/github/license/pyaethu-aung/personal-blog)](https://opensource.org/licenses/MIT)
-[![Hugo](https://img.shields.io/badge/Hugo-0.152.2-blue)](https://gohugo.io/)
+[![Hugo](https://img.shields.io/badge/Hugo-0.153.0-blue)](https://gohugo.io/)
 [![Go](https://img.shields.io/badge/Go-1.25.5-blue)](https://golang.org/)
 
 This project is a personal blog built using [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme.
