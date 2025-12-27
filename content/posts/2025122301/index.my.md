@@ -70,3 +70,7 @@ jobs:
           flags: unittests
           fail_ci_if_error: false
 ```
+
+## Breaking Down
+### 1. Staring `on:`
+Linter workflow လိုပါပဲ၊ ဒီ workflow က main branch ကို code push လုပ်တဲ့အခါ ဒါမှမဟုတ် pull request တင်တဲ့အခါတွေမှာ အလုပ်လုပ်ပါလိမ့်မယ်။ Code နဲ့ဆိုင်တဲ့ file တွေ (`cmd/**`၊ `pkg/**` စသဖြင့်) နဲ့ `build`၊ `dependency` အပိုင်းနဲ့ဆိုင်တဲ့ `Makefile၊` `go.mod၊` `go.sum` တွေ ပြင်မှသာ ဒီ test workflow ကို run မှာဖြစ်လို့ မလိုအပ်ဘဲ workflow run နေတာမျိုး မဖြစ်အောင် ကာကွယ်ပေးပါတယ်။
