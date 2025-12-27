@@ -74,3 +74,22 @@ jobs:
 ## Breaking Down
 ### 1. Staring `on:`
 Linter workflow လိုပါပဲ၊ ဒီ workflow က main branch ကို code push လုပ်တဲ့အခါ ဒါမှမဟုတ် pull request တင်တဲ့အခါတွေမှာ အလုပ်လုပ်ပါလိမ့်မယ်။ Code နဲ့ဆိုင်တဲ့ file တွေ (`cmd/**`၊ `pkg/**` စသဖြင့်) နဲ့ `build`၊ `dependency` အပိုင်းနဲ့ဆိုင်တဲ့ `Makefile၊` `go.mod၊` `go.sum` တွေ ပြင်မှသာ ဒီ test workflow ကို run မှာဖြစ်လို့ မလိုအပ်ဘဲ workflow run နေတာမျိုး မဖြစ်အောင် ကာကွယ်ပေးပါတယ်။
+
+### 2. Setup and Caching
+`ubuntu-latest` ပေါ်မှာ Go `v1.25.5` ကို setup လုပ်ပြီး run ပါတယ်။ Caching အပိုင်းကတော့ အရင် [post]({{< relref path="2025121301/index.my.md" lang="my" >}}) မှာ ပြောခဲ့သလိုပဲ `go.sum` file မှာ အပြောင်းအလဲမရှိသ၍ Go modules တွေကို download မလုပ်ဘဲ cache ကနေ ပြန်ယူသုံးတဲ့အတွက် workflow ကြာချိန်ကို သိသိသာသာ လျှော့ချပေးပါတယ်။
+
+### 3. Running Tests
+ဒီ workflow မှာ test command တွေကို run ဖို့အတွက် `Makefile` ကို သုံးထားပါတယ်။ ဒါကြောင့် ကိုယ့် project ရဲ့ Makefile ထဲမှာ သက်ဆိုင်ရာ command တွေ ရှိနေဖို့တော့လိုပါမယ်။
+1. `make test`: ဒါက ပုံမှန် unit test တွေကို run ဖို့အတွက်ပါ။ ဥပမာ `go test ./...` လိုမျိုး။
+2. `make test-coverage`: ဒါကတော့ test coverage တွက်ဖို့နဲ့ report file (`coverage.out`) ထွက်လာအောင် run တာပါ။
+
+### 4. Uploading Test Coverage
+```yaml
+- name: Upload coverage to Codecov
+  uses: codecov/codecov-action@v5
+  with:
+    files: ./coverage.out
+    flags: unittests
+    fail_ci_if_error: false
+```
+Test coverage တွက်ပြီးရင် ရလာတဲ့ result ကို visually ကြည့်လို့ရအောင် [Codecov](https://about.codecov.io/) ကို upload တင်ပါတယ်။ `files: ./coverage.out` ဆိုပြီး step #4 မှာ ထွက်လာတဲ့ report file ကို ညွှန်းပေးထားပါတယ်။ `fail_ci_if_error: false` ကတော့ တခုခုကြောင့် codecov upload တင်တာ error တက်ခဲ့ရင်လည်း အဓိက test run တာ အောင်မြင်တယ်ဆိုရင် CI workflow ကို မ fail စေချင်လို့ပါ။
