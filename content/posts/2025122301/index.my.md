@@ -93,3 +93,6 @@ Linter workflow လိုပါပဲ၊ ဒီ workflow က main branch ကိ�
     fail_ci_if_error: false
 ```
 Test coverage တွက်ပြီးရင် ရလာတဲ့ result ကို visually ကြည့်လို့ရအောင် [Codecov](https://about.codecov.io/) ကို upload တင်ပါတယ်။ `files: ./coverage.out` ဆိုပြီး step #4 မှာ ထွက်လာတဲ့ report file ကို ညွှန်းပေးထားပါတယ်။ `fail_ci_if_error: false` ကတော့ တခုခုကြောင့် codecov upload တင်တာ error တက်ခဲ့ရင်လည်း အဓိက test run တာ အောင်မြင်တယ်ဆိုရင် CI workflow ကို မ fail စေချင်လို့ပါ။
+
+## နိဂုံး
+ဒီ test workflow ထည့်ထားခြင်းအားဖြင့် PR တင်တဲ့အခါမှာ ကိုယ့် code ကြောင့် ရှိပြီးသား functionality တွေ ပျက်မသွားဘူးဆိုတာတဲ့ ယုံကြည်မှုမျိုး ရနိုင်မှာပါ။။ Test coverage report ကိုကြည့်ပြီးတော့လည်း ကိုယ့် project ရဲ့ ဘယ်အပိုင်းတွေမှာ unit test လိုနေသေးလဲဆိုတာ သိနိုင်ပါတယ်။ CI/CD pipeline မှာ testing က မပါမဖြစ်မို့လို့ ထည့်သုံးကြည့်ကြဖို့ တိုက်တွန်းချင်ပါတယ်။
