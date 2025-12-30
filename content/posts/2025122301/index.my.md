@@ -7,6 +7,8 @@ slug = "unit-test-with-github-actions"
 tags = ["github-actions", "go"]
 +++
 
+[Read this article in English]({{< relref path="2025122301/index.en.md" lang="en" >}})
+
 ## နိဒါန်း
 ပြီးခဲ့တဲ့ [post]({{< relref path="2025121301/index.my.md" lang="my" >}}) မှာ Go project တွေအတွက် linter workflow အကြောင်း ပြောပြခဲ့ပြီးပါပြီ။ Code quality ကောင်းဖို့အတွက် linting က အရေးကြီးသလိုပဲ၊ ကိုယ်ရေးထားတဲ့ code က မျှော်မှန်းထားတဲ့အတိုင်း အလုပ်လုပ်ရဲ့လား၊ feature အသစ်တွေထည့်လိုက်ရင် အဟောင်းတွေကရော အလုပ်လုပ်သေးရဲ့လားဆိုတာ သေချာဖို့အတွက် testing ကလည်း မရှိမဖြစ် လိုအပ်ပါတယ်။
 
@@ -73,13 +75,13 @@ jobs:
 
 ## Breaking Down
 ### 1. Staring `on:`
-Linter workflow လိုပါပဲ၊ ဒီ workflow က main branch ကို code push လုပ်တဲ့အခါ ဒါမှမဟုတ် pull request တင်တဲ့အခါတွေမှာ အလုပ်လုပ်ပါလိမ့်မယ်။ Code နဲ့ဆိုင်တဲ့ file တွေ (`cmd/**`၊ `pkg/**` စသဖြင့်) နဲ့ `build`၊ `dependency` အပိုင်းနဲ့ဆိုင်တဲ့ `Makefile၊` `go.mod၊` `go.sum` တွေ ပြင်မှသာ ဒီ test workflow ကို run မှာဖြစ်လို့ မလိုအပ်ဘဲ workflow run နေတာမျိုး မဖြစ်အောင် ကာကွယ်ပေးပါတယ်။
+Linter workflow လိုပါပဲ၊ ဒီ workflow က `main` branch ကို code push လုပ်တဲ့အခါ ဒါမှမဟုတ် pull request တင်တဲ့အခါတွေမှာ အလုပ်လုပ်ပါလိမ့်မယ်။ Code နဲ့ဆိုင်တဲ့ file တွေ (`cmd/**`၊ `pkg/**` စသဖြင့်) နဲ့ build၊ dependency အပိုင်းနဲ့ဆိုင်တဲ့ `Makefile၊` `go.mod၊` `go.sum` တွေ ပြင်မှသာ ဒီ test workflow ကို run မှာဖြစ်လို့ မလိုအပ်ဘဲ workflow run နေတာမျိုး မဖြစ်အောင် ကာကွယ်ပေးပါတယ်။
 
 ### 2. Setup and Caching
 `ubuntu-latest` ပေါ်မှာ Go `v1.25.5` ကို setup လုပ်ပြီး run ပါတယ်။ Caching အပိုင်းကတော့ အရင် [post]({{< relref path="2025121301/index.my.md" lang="my" >}}) မှာ ပြောခဲ့သလိုပဲ `go.sum` file မှာ အပြောင်းအလဲမရှိသ၍ Go modules တွေကို download မလုပ်ဘဲ cache ကနေ ပြန်ယူသုံးတဲ့အတွက် workflow ကြာချိန်ကို သိသိသာသာ လျှော့ချပေးပါတယ်။
 
 ### 3. Running Tests
-ဒီ workflow မှာ test command တွေကို run ဖို့အတွက် `Makefile` ကို သုံးထားပါတယ်။ ဒါကြောင့် ကိုယ့် project ရဲ့ Makefile ထဲမှာ သက်ဆိုင်ရာ command တွေ ရှိနေဖို့တော့လိုပါမယ်။
+ဒီ workflow မှာ test command တွေကို run ဖို့အတွက် `Makefile` ကို သုံးထားပါတယ်။ ဒါကြောင့် ကိုယ့် project ရဲ့ `Makefile` ထဲမှာ သက်ဆိုင်ရာ command တွေ ရှိနေဖို့တော့လိုပါမယ်။
 1. `make test`: ဒါက ပုံမှန် unit test တွေကို run ဖို့အတွက်ပါ။ ဥပမာ `go test ./...` လိုမျိုး။
 2. `make test-coverage`: ဒါကတော့ test coverage တွက်ဖို့နဲ့ report file (`coverage.out`) ထွက်လာအောင် run တာပါ။
 
