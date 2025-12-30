@@ -93,3 +93,6 @@ This workflow relies on the `Makefile` to execute the test commands. You'll need
     fail_ci_if_error: false
 ```
 After the tests run, it upload the results to [Codecov](https://about.codecov.io/) to visualize the coverage result. It point to the `coverage.out` file generated in the step #4 with `files: ./coverage.out`. Setting `fail_ci_if_error: false` ensures that if there's an issue uploading to Codecov, the entire CI workflow doesn't fail as long as the tests themselves passed.
+
+## Conclusion
+By adding this test workflow, you can have more confidence that your code won't break existing features when you submit a PR. Looking at the test coverage report also helps you identify which parts of your project still need unit tests. Testing is an indispensable part of any CI/CD pipeline, and I highly recommend setting it up for your projects.
