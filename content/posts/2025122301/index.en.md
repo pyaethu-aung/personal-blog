@@ -70,3 +70,26 @@ jobs:
           flags: unittests
           fail_ci_if_error: false
 ```
+
+## Breaking Down
+### 1. Staring `on:`
+Similar to the linter workflow, this workflow runs whenever code is pushed to the `main` branch or a pull request is created. It ensure the workflow only runs when necessary, Go source files (`cmd/**`, `pkg/**`), build-related and dependency files (`Makefile`, `go.mod`, `go.sum`), saving GitHub Actions minutes.
+
+### 2. Setup and Caching
+This job runs on `ubuntu-latest` and sets up Go `v1.25.5`. As mentioned in the previous [post]({{< relref path="2025121301/index.my.md" lang="my" >}}), the caching step is a key. It reuses the Go modules and build cache as long as `go.sum` hasn't changed, significantly reducing the workflow execution time.
+
+### 3. Running Tests
+This workflow relies on the `Makefile` to execute the test commands. You'll need to have the corresponding commands defined in your project's `Makefile`:
+1. `make test`: Runs standard unit tests (e.g., `go test ./...`).
+2. `make test-coverage`: Runs tests and generates a coverage report file (`coverage.out`).
+
+### 4. Uploading Test Coverage
+```yaml
+- name: Upload coverage to Codecov
+  uses: codecov/codecov-action@v5
+  with:
+    files: ./coverage.out
+    flags: unittests
+    fail_ci_if_error: false
+```
+After the tests run, it upload the results to [Codecov](https://about.codecov.io/) to visualize the coverage result. It point to the `coverage.out` file generated in the step #4 with `files: ./coverage.out`. Setting `fail_ci_if_error: false` ensures that if there's an issue uploading to Codecov, the entire CI workflow doesn't fail as long as the tests themselves passed.
