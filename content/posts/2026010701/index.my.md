@@ -33,3 +33,13 @@ Copilot ကတော့ ဒါတွေကို အစအဆုံး implement
 - Theme switching
 - Responsive design
 - Unit tests (`vitest`)
+
+## Prompts
+သုံးခဲ့တဲ့ prompt တွေကို `README` မှာ ထည့်ပေးထားပါတယ်။
+1. Build a Tailwind-forward UUID generator interface that feels polished and modern.
+2. Add a selector that lets the user toggle between UUID versions v1, v4, and v7.
+3. Keep badges/stat labels on a single line so that wording like "Characters Each" never wraps or overflows.
+4. Provide animated feedback when copying UUIDs and acknowledge downloads with contextual text.
+5. Extend download batches to 200 entries while keeping only 20 visible in the live preview.
+6. Replace multiple controls with one slider that manages both preview and download counts, updating immediately as it moves.
+7. Relocate version, batch size, and per-UUID character details into the stat cards above the list to avoid duplicate text elsewhere.
