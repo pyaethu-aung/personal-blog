@@ -43,3 +43,18 @@ Copilot ကတော့ ဒါတွေကို အစအဆုံး implement
 5. Extend download batches to 200 entries while keeping only 20 visible in the live preview.
 6. Replace multiple controls with one slider that manages both preview and download counts, updating immediately as it moves.
 7. Relocate version, batch size, and per-UUID character details into the stat cards above the list to avoid duplicate text elsewhere.
+
+## Lessons Learned
+ဒီ project ကနေ သင်ခန်းစာတွေလည်းရခဲ့ပါတယ်။
+
+### 1. Clear Communication is Key
+AI နဲ့အလုပ်လုပ်တဲ့အခါ prompt က ရှင်းရှင်းလင်းလင်းဖြစ်ဖို့ အရေးကြီးပါတယ်။ `Make it better` လို vague prompt တွေထက် `Keep badges on a single line to prevent wrapping` လို specific prompt တွေက ပိုကောင်းပါတယ်။
+
+### 2. Iterative Development Works
+တခါတည်း perfect solution ရအောင်မလုပ်ဘဲ၊ working version တခုကနေ တဖြည်းတဖြည်းချင်း improve လုပ်သွားတာက ပိုထိရောက်ပါတယ်။
+
+### 3. Review and Validate
+AI generated code တိုင်းကို စစ်ဖို့လိုပါတယ်။ Edge cases တွေ၊ performance issues တွေ၊ accessibility concerns တွေကို human developer က သတိထားကြည့်ရပါမယ်။
+
+### 4. Documentation Matters
+Development process တခုလုံးကို document လုပ်ထားတာက နောက်မှ ပြန်ကြည့်ရင် အသုံးဝင်ပါတယ်။
