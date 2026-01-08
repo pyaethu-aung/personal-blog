@@ -17,3 +17,19 @@ tags = ["uuid", "react", "vite", "ai", "github-copilot"]
 4. **Formatting Options**: Uppercase လုပ်တာ၊ hyphens ဖယ်တာနဲ့ braces ထည့်တာတွေ လုပ်နိုင်ပါတယ်။
 5. **Dark Mode**: System preference ပေါ်မူတည်ပြီး dark/light theme support ထည့်ထားပါတယ်။
 6. **Responsive Design**: Mobile ကနေ desktop အထိ သုံးလို့ရအောင် responsive လုပ်ထားပါတယ်။
+
+## Human Input
+ဒီ project ကို စရေးကတည်းက အခြေခံလိုအပ်တာတွေကိုအရင်ထည့်ပြီးမှ ကျန်တာတွေကိုလိုက်ဖြည့်မယ်ဆိုပြီး စဉ်းစားခဲ့တာပါ။ ဒါပေမယ့် ပထမဆုံး prompy မှာကတည်းက လိုအပ်တာတွေကို တော်တော်လေးလုပ်သွားပေးနိုင်တယ်လို့ပြောရမှာပါ။ ကျွန်တော့အနေနဲ့ အောက်ကလေးချက်ပဲ အဓိကလုပ်ပေးခဲ့ရတယ်လို့ ပြောလို့ရပါတယ်။
+1. **High-level requirements** တွေကို ရှင်းရှင်းလင်းလင်းရေးပေးတာ။
+2. Generated code တွေကို review လုပ်ပေးတာ။
+3. တဆင့်ပြီးတဆင့် **iterative prompt** တွေပေးပြီး refine လုပ်တာ။
+4. Testing နဲ့  performance optimization အတွက် guidance ပေးတာ။
+
+Copilot ကတော့ ဒါတွေကို အစအဆုံး implement လုပ်ပေးခဲ့ပါတယ်။
+- React component architecture နဲ့ state management
+- UI layout နဲ့ Tailwind styling
+- UUID generation logic (`uuid` npm package)
+- Clipboard API နဲ့ file download
+- Theme switching
+- Responsive design
+- Unit tests (`vitest`)
