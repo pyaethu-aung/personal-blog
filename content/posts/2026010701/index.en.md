@@ -7,6 +7,8 @@ slug = "uuid-generator-with-ai-agent"
 tags = ["uuid", "react", "vite", "ai", "github-copilot"]
 +++
 
+[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်]({{< relref path="2026010701/index.my.md" lang="my" >}})
+
 ## Intro
 With the rise of AI assistants, the software development landscape has changed significantly. Tools like GitHub Copilot can now handle everything from simple CRUD apps to complex logic implementation. Developers can now focus more on high-level requirements.
 
