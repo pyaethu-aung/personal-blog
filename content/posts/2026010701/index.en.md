@@ -33,3 +33,9 @@ The workflow didn't follow the traditional planning -> coding pattern but rather
 5. Scaling to 200 items
 6. Unified slider control
 7. Information architecture refinement
+
+### 3. Technical Highlights
+The implementation quality provided by Copilot is quite impressive.
+- **Custom Hooks**: Logic is separated into `useTheme` and `useUuidGenerator`, making the code clean and easy to test.
+- **Web Crypto API**: Uses `crypto.randomUUID()` via the Web Crypto API instead of `Math.random()` for true randomness.
+- **Optimized Rendering**: Includes logic to render only items in the viewport instead of rendering all 200 items.
