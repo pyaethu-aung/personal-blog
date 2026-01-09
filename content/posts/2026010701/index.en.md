@@ -23,3 +23,13 @@ In this post, I want to share about the [UUID Generator](https://github.com/pyae
 ## Breaking Down
 ### 1. AI-First Development
 The unique aspect of this project is that almost all core implementation was written by **GitHub Copilot** (GPT-5.1-Codex). Human inputs were limited to high-level requirements, code review, and testing guidance. React architecture, Tailwind styling, business logic, and unit tests were fully implemented by GitHub Copilot.
+
+### 2. Prompt Evolution
+The workflow didn't follow the traditional planning -> coding pattern but rather a **conversational iteration** approach. If you look at the prompt history documented in the `README`, you can see how features were built incrementally:
+1. Initial Interface styling
+2. Version selector logic
+3. Mobile responsive badges
+4. UX interactions (copy feedback)
+5. Scaling to 200 items
+6. Unified slider control
+7. Information architecture refinement
