@@ -39,3 +39,6 @@ The implementation quality provided by Copilot is quite impressive.
 - **Custom Hooks**: Logic is separated into `useTheme` and `useUuidGenerator`, making the code clean and easy to test.
 - **Web Crypto API**: Uses `crypto.randomUUID()` via the Web Crypto API instead of `Math.random()` for true randomness.
 - **Optimized Rendering**: Includes logic to render only items in the viewport instead of rendering all 200 items.
+
+## Conclusion
+This project is a good example for testing the AI-assisted development workflow. It allowed me as a developer to focus more on architectural vision and quality assurance rather than implementation details. You can explore the project source code on [GitHub](https://github.com/pyaethu-aung/uuid-generator) and try out the [Demo](https://pyaethu-aung.github.io/uuid-generator/).
