@@ -19,3 +19,7 @@ In this post, I want to share about the [UUID Generator](https://github.com/pyae
 3. **Smart Controls**: Batch size and preview count can be controlled with a unified slider.
 4. **Copy & Download**: Supports clipboard copy and text file download (with timestamped filename).
 5. **Formatting**: Supports uppercase, removing hyphens, and wrapping braces.
+
+## Breaking Down
+### 1. AI-First Development
+The unique aspect of this project is that almost all core implementation was written by **GitHub Copilot** (GPT-5.1-Codex). Human inputs were limited to high-level requirements, code review, and testing guidance. React architecture, Tailwind styling, business logic, and unit tests were fully implemented by GitHub Copilot.
