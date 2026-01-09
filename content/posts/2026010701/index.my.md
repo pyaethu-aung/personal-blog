@@ -7,6 +7,8 @@ slug = "uuid-generator-with-ai-agent"
 tags = ["uuid", "react", "vite", "ai", "github-copilot"]
 +++
 
+[Read this article in English]({{< relref path="2026010701/index.en.md" lang="en" >}})
+
 ## နိဒါန်း
 AI assistant တွေ ပေါ်လာတာနဲ့အမျှ software development landscape က တော်တော်လေးပြောင်းလဲလာပါတယ်။ အထူးသဖြင့် GitHub Copilot လို tool တွေက simple CRUD app ကနေ complex logic ပါတာတွေအထိ implementation အပိုင်းကို handle လုပ်ပေးနိုင်နေပါပြီ။ Developer တွေအနေနဲ့ high-level requirements တွေကိုပဲ focus လုပ်ဖို့ လိုပါတော့တယ်။
 
@@ -25,7 +27,7 @@ AI assistant တွေ ပေါ်လာတာနဲ့အမျှ software de
 ဒီ project ရဲ့ ထူးခြားချက်က core implementation အားလုံးနီးပါးကို **GitHub Copilot** (GPT-5.1-Codex) က ရေးပေးထားတာပါ။ Human inputs အနေနဲ့က high-level requirements, code review နဲ့ testing guidance လောက်ပဲ ပေးရပါတယ်။ React architecture, Tailwind styling, Business logic နဲ့ Unit tests တွေကို AI က အစအဆုံး implement လုပ်သွားပါတယ်။
 
 ### 2. Prompt Evolution
-Workflow က traditional planning -> coding ပုံစံမဟုတ်ဘဲ **conversational iteration** ပုံစံနဲ့သွားပါတယ်။ README မှာလည်း document လုပ်ထားတဲ့ prompt history ကိုကြည့်ရင် feature တခုချင်းစီကို incremental build လုပ်သွားတာ တွေ့ရပါလိမ့်မယ်။
+Workflow က traditional planning -> coding ပုံစံမဟုတ်ဘဲ **conversational iteration** ပုံစံနဲ့သွားပါတယ်။ `README` မှာလည်း document လုပ်ထားတဲ့ prompt history ကိုကြည့်ရင် feature တခုချင်းစီကို incremental build လုပ်သွားတာ တွေ့ရပါလိမ့်မယ်။
 1. Initial Interface styling
 2. Version selector logic
 3. Mobile responsive badges
