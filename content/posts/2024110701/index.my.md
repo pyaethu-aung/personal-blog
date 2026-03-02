@@ -23,7 +23,7 @@ Hugo offers a variety of powerful [features](https://gohugo.io/about/features/),
 Blog စလုပ်မယ်ဆိုတော့ SSG တွေကလည်း တခုမှမသုံးဖူးတာနဲ့ နည်းနည်းပါးပါးလိုက်ရှာပြီး Hugo ကိုပဲ သုံးဖြစ်လိုက်တယ်။ အဓိကက ကိုယ်က Go နဲ့ ပိုရင်းနီးတော့ Go's [text/template](https://pkg.go.dev/text/template) နဲ့ [html/template](https://pkg.go.dev/html/template) လိုမျိုးတွေ သုံးဖို့လိုလာရင် ပိုရင်းနီးတာကြောင့်ရယ်၊ မြန်မာလို ရော English လိုရောကို အဆင်ပြေပြေပြောင်းလို့ရတာတွေကြောင့်လို့ ပြောရမယ်။
 
 ## What is [Blowfish](https://blowfish.page/)?
-Theme အတွက်က Blowfish ကို သုံးဖြစ်လိုက်တယ်။ Automatic image resizing၊ integrated site search နဲ့ documentation ကောင်းလို့ပါ။ Documentation အသေးစိတ်ကို [ဒီမှာ]((https://blowfish.page/docs/welcome/)) ကြည့်လို့ရတယ်။ သူက [Tailwind CSS v3](https://tailwindcss.com/blog/tailwindcss-v3) နဲ့။
+Theme အတွက်က Blowfish ကို သုံးဖြစ်လိုက်တယ်။ Automatic image resizing၊ integrated site search နဲ့ documentation ကောင်းလို့ပါ။ Documentation အသေးစိတ်ကို [ဒီမှာ](https://blowfish.page/docs/welcome/) ကြည့်လို့ရတယ်။ သူက [Tailwind CSS v3](https://tailwindcss.com/blog/tailwindcss-v3) နဲ့။
 
 ## Setting Hugo on Local
 ### Prerequisites
