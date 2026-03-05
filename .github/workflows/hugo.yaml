@@ -44,6 +44,7 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     env:
       HUGO_VERSION: 0.153.0
     steps:
@@ -71,6 +72,11 @@ jobs:
           key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.md', '**/*.html', '**/*.scss', '**/*.css') }}
           restore-keys: |
             ${{ runner.os }}-hugo-
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
@@ -94,6 +100,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     needs: build
     steps:
       - name: Deploy to GitHub Pages
