@@ -1,34 +1,59 @@
-name: Security Scan
+name: Security
 
 on:
   push:
     branches: [main]
     paths:
-      - "cmd/**"
-      - "pkg/**"
       - "go.mod"
       - "go.sum"
+      - ".snyk"
       - ".github/workflows/security.yml"
+      - "archetypes/**"
+      - "assets/**"
+      - "content/**"
+      - "layouts/**"
+      - "static/**"
   pull_request:
     branches: [main]
     paths:
-      - "cmd/**"
-      - "pkg/**"
       - "go.mod"
       - "go.sum"
+      - ".snyk"
       - ".github/workflows/security.yml"
+      - "archetypes/**"
+      - "assets/**"
+      - "content/**"
+      - "layouts/**"
+      - "static/**"
   schedule:
     - cron: "0 2 * * 0"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
 jobs:
-  trivy:
+  security-scan:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
+    name: Security Scan
+    timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+
+      - name: Install dependencies
+        run: go mod download
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
@@ -38,7 +63,30 @@ jobs:
           format: "sarif"
           output: "trivy-results.sarif"
 
+      - name: Run Snyk vulnerability scanner
+        id: snyk
+        uses: snyk/actions/golang@master
+        with:
+          args: --severity-threshold=high --sarif-file-output=snyk.sarif
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: go
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+
+      - name: Upload Snyk results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: snyk.sarif
+        if: steps.snyk.outcome == 'success'
+
       - name: Upload Trivy results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: "trivy-results.sarif"
+          sarif_file: trivy-results.sarif
