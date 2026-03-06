@@ -7,13 +7,15 @@ slug = "update-past-commits"
 tags = ["git", "github", "version-control"]
 +++
 
+[မြန်မာဘာသာဖြင့် ဖတ်ရှုရန်]({{< relref path="2026030601/index.my.md" lang="my" >}})
+
 ## Introduction
 When pushing code, writing clear commit messages is very important. But sometimes, you might make a typo in the commit message or want to change it to something clearer.
 
 In this post, I will share how you can update your past commits using `git commit --amend` and `git rebase`.
 
 ## Updating the Latest Commit?
-If the commit you want to edit is the latest one, it's very easy.
+If the commit you want to edit is the latest commit, it's the easiest one.
 
 You can simply use the `git commit --amend` command.
 
@@ -21,9 +23,9 @@ You can simply use the `git commit --amend` command.
 git commit --amend
 ```
 
-Running this command will open a text editor in your terminal. There, you can write the new commit message and save it.
+Running this command will open a text editor in your terminal. You can write the new commit message and save it then.
 
-> **Pro Tip:** If you forgot to include some files in the last commit and just want to add them without changing the commit message, you can easily do so by running `git add .` followed by `git commit --amend --no-edit`.
+***Pro Tip:*** If you forgot to include some files in the last commit and just want to add them without changing the commit message, you can easily do so by running `git add .` followed by `git commit --amend --no-edit`.
 
 ## Updating Older Commits?
 If the commits you want to edit are not the latest ones, you'll need to use `git rebase`. For example, if you want to edit the last 3 commits, you can use **interactive rebase** as follows:
