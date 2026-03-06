@@ -23,7 +23,7 @@ git commit --amend
 
 ဒီ command ကို run လိုက်တာနဲ့ terminal မှာ text editor ပွင့်လာပါလိမ့်မယ်။ အဲ့ဒီမှာ commit message အသစ်ကို ပြင်ရေးပြီး save လိုက်ရုံပါပဲ။
 
-> **Pro Tip:** တကယ်လို့ commit message ကိုမပြင်ဘဲ file တွေ မေ့ကျန်ခဲ့လို့ နောက်ဆုံး commit ထဲကိုပဲ ထပ်ထည့်ချင်တာဆိုရင်တော့ `git add .` လုပ်ပြီး `git commit --amend --no-edit` ဆိုပြီး အလွယ်တကူ သုံးလို့ရပါတယ်။
+***Pro Tip:*** တကယ်လို့ commit message ကို မပြင်ဘဲ file တွေ မေ့ကျန်ခဲ့လို့ နောက်ဆုံး commit ထဲကိုပဲ ထပ်ထည့်ချင်တာဆိုရင်တော့ `git add .` လုပ်ပြီး `git commit --amend --no-edit` ဆိုပြီး အလွယ်တကူ သုံးလို့ရပါတယ်။
 
 ## နောက်ဆုံးမဟုတ်တဲ့ Commit အဟောင်းတွေကို ပြင်ချင်တာဆိုရင်?
 တကယ်လို့ ကိုယ်ပြင်ချင်တဲ့ commit တွေက နောက်ဆုံး commit မဟုတ်ဘဲ အရင်ကလုပ်ခဲ့တဲ့ commit တွေဖြစ်နေတယ်ဆိုရင်တော့ `git rebase` ကို သုံးဖို့လိုပါတယ်။ ဥပမာ - နောက်ဆုံး commits ၃ ခုကို ပြန်ပြင်ချင်တယ်ဆိုရင် **interactive rebase** ကို အောက်ပါအတိုင်း သုံးနိုင်ပါတယ်။
@@ -32,7 +32,7 @@ git commit --amend
 git rebase -i HEAD~3
 ```
 
-ဒီ command ကို run လိုက်တဲ့အခါ editor (may be Vim) ပွင့်လာပြီး commit list ကို တွေ့ရပါလိမ့်မယ်။
+ဒီ command ကို run လိုက်တဲ့အခါ editor (maybe Vim) ပွင့်လာပြီး commit list ကို တွေ့ရပါလိမ့်မယ်။
 
 ဥပမာ:
 ```text
