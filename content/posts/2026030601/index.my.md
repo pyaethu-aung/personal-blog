@@ -7,6 +7,8 @@ slug = "update-past-commits"
 tags = ["git", "github", "version-control"]
 +++
 
+[Read this article in English]({{< relref path="2026030601/index.en.md" lang="en" >}})
+
 ## နိဒါန်း
 Code push လုပ်တဲ့အခါ commit message တွေကို သေချာရေးဖို့ အရမ်းအရေးကြီးပါတယ်။ ဒါပေမယ့် တခါတလေမှာ commit message က typo ဖြစ်သွားတာမျိုး၊ ဒါမှမဟုတ် ပိုပြီးရှင်းလင်းတဲ့ commit message ကို ပြောင်းချင်တာမျိုးတွေ ကြုံရတတ်ပါတယ်။ 
 
