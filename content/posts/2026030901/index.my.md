@@ -7,6 +7,8 @@ slug = "github-contributions-missing-gitmailmap"
 tags = ["git", "github", "gitmailmap", "filter-repo"]
 +++
 
+[Read this article in English]({{< relref path="2026030901/index.en.md" lang="en" >}})
+
 ## နိဒါန်း
 
 GitHub သုံးတဲ့သူတိုင်း ကိုယ့်ရဲ့ profile မှာ စိမ်းနေတဲ့ contribution graph လေးတွေကို မြင်ချင်မှာပါ။ ဒါပေမယ့် တခါတလေမှာ ကိုယ်က နေ့တိုင်း code တွေ ရေးပြီး push လုပ်နေပေမယ့် GitHub contribution မှာ သွားမပေါ်တာမျိုး ကြုံရနိုင်ပါတယ်။ အဓိကအကြောင်းအရင်းကတော့ ကိုယ့်ရဲ့ local Git config မှာ သုံးထားတဲ့ email နဲ့ GitHub အကောင့်မှာရှိတဲ့ email မတူလို့ပါ။
