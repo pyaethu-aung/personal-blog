@@ -7,6 +7,8 @@ slug = "git-reset-soft-head-tips"
 tags = ["git", "github", "git reset", "tips"]
 +++
 
+[Read this article in English]({{< relref path="2026031101/index.en.md" lang="en" >}})
+
 ## နိဒါန်း
 Git သုံးတဲ့အခါမှာ ကိုယ်က `git commit` လုပ်လိုက်ပြီးမှ ဖိုင်တချို့ ပါဖို့ကျန်ခဲ့တာပဲဖြစ်ဖြစ်၊ commit message မှားသွားတာပဲဖြစ်ဖြစ် ကြုံဖူးကြမှာပါ။ အဲ့လိုအချိန်မှာ commit လုပ်ပြီးသား file တွေကို ပြန်ပြင်ချင်ရင် `git reset --soft` ကို သုံးပြီး အလွယ်တကူ ပြန်ပြင်လို့ရပါတယ်။
 
