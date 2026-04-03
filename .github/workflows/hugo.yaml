@@ -61,7 +61,7 @@ jobs:
           fetch-depth: 0
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       # Cache Hugo resources & build cache
       - name: Cache Hugo resources
         uses: actions/cache@v5
