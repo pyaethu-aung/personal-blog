@@ -2,7 +2,6 @@
 title = "What to Do If GitHub Contributions Are Missing (gitmailmap)"
 date = '2026-03-09T22:00:40+07:00'
 draft = false
-lang = "en"
 slug = "github-contributions-missing-gitmailmap"
 tags = ["git", "github", "gitmailmap", "filter-repo"]
 +++

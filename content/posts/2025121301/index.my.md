@@ -2,7 +2,6 @@
 title = "Go Linter With GitHub Actions"
 date = '2025-12-13T22:59:00+07:00'
 draft = false
-lang = "my"
 slug = "go-linter-with-github-actions"
 tags = ["github-actions", "go"]
 +++

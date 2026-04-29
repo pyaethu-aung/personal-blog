@@ -2,7 +2,6 @@
 title = "GitHub မှာ Contribution တွေ မပေါ်ရင် ဘယ်လိုလုပ်မလဲ (gitmailmap)"
 date = '2026-03-09T22:00:40+07:00'
 draft = false
-lang = "my"
 slug = "github-contributions-missing-gitmailmap"
 tags = ["git", "github", "gitmailmap", "filter-repo"]
 +++

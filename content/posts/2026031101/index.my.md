@@ -2,7 +2,6 @@
 title = "Git Commit တွေကို ဘယ်လို ပြန်ပြင်မလဲ (git reset --soft)"
 date = '2026-03-12T22:10:49+07:00'
 draft = false
-lang = "my"
 slug = "git-reset-soft-head-tips"
 tags = ["git", "github", "git reset", "tips"]
 +++
