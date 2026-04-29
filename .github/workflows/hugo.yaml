@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
-      HUGO_VERSION: 0.153.0
+      HUGO_VERSION: 0.161.1
     steps:
       - name: Install Hugo CLI
         run: |
