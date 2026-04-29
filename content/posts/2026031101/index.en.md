@@ -2,7 +2,6 @@
 title = "How to Edit Git Commits (git reset --soft)"
 date = '2026-03-12T23:30:41+07:00'
 draft = false
-lang = "en"
 slug = "git-reset-soft-head-tips"
 tags = ["git", "github", "git reset", "tips"]
 +++

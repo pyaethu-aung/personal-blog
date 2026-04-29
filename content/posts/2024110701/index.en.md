@@ -2,7 +2,6 @@
 title = "Personal Blog Using Hugo and Blowfish"
 date = 2024-11-06T18:50:00+07:00
 draft = false
-lang = "en"
 slug = "personal-blog-using-hugo-and-blowfish"
 tags = ["hugo", "blowfish"]
 +++

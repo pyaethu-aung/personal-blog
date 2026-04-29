@@ -2,7 +2,6 @@
 title = "Regular Expressions အခြေခံ"
 date = '2024-12-29T02:41:08+07:00'
 draft = false
-lang = "my"
 slug = "regular-expressions-101"
 tags = ["regex", "python"]
 +++

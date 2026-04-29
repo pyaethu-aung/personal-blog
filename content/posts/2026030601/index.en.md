@@ -2,7 +2,6 @@
 title = "How to Update Past Commits"
 date = '2026-03-06T22:53:52+07:00'
 draft = false
-lang = "en"
 slug = "update-past-commits"
 tags = ["git", "github", "version-control"]
 +++

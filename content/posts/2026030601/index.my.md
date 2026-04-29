@@ -2,7 +2,6 @@
 title = "Past Commits တွေကို ဘယ်လို Update လုပ်မလဲ"
 date = '2026-03-06T22:53:52+07:00'
 draft = false
-lang = "my"
 slug = "update-past-commits"
 tags = ["git", "github", "version-control"]
 +++
