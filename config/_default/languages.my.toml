@@ -1,6 +1,6 @@
 disabled = false
-languageCode = "my"
-languageName = "Burmese"
+locale = "my"
+label = "Burmese"
 weight = 2
 title = "Thoughts"
 
