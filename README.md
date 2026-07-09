@@ -3,7 +3,7 @@
 [![Deploy Hugo site to Pages](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/hugo.yaml)
 [![Security](https://github.com/pyaethu-aung/personal-blog/actions/workflows/security.yml/badge.svg)](https://github.com/pyaethu-aung/personal-blog/actions/workflows/security.yml)
 [![License](https://img.shields.io/github/license/pyaethu-aung/personal-blog)](https://opensource.org/licenses/MIT)
-[![Hugo](https://img.shields.io/badge/Hugo-0.153.0-blue)](https://gohugo.io/)
+[![Hugo](https://img.shields.io/badge/Hugo-0.161.1-blue)](https://gohugo.io/)
 [![Go](https://img.shields.io/badge/Go-1.25.5-blue)](https://golang.org/)
 
 This project is a personal blog built using [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme.
@@ -12,7 +12,6 @@ This project is a personal blog built using [Hugo](https://gohugo.io/) and the [
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Go](https://go.dev/doc/install)
-- [Dart Sass](https://gohugo.io/hugo-pipes/transpile-sass-to-css/#dart-sass) (optional)
 
 ## Installation
 
@@ -62,6 +61,8 @@ This project uses GitHub Actions to deploy the site to GitHub Pages. The workflo
 ## Contributing
 
 Feel free to open issues or submit pull requests for any improvements or bug fixes.
+
+**Note on content security:** this site enables `goldmark.renderer.unsafe = true` (required by the Blowfish theme), so raw HTML in Markdown is rendered as-is. Content PRs must be reviewed for embedded HTML/scripts before merging.
 
 ### Branch Naming Convention
 
